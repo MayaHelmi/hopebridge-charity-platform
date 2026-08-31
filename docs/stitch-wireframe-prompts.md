@@ -107,23 +107,33 @@ Screen: Active Programs. Signed out.
 ## 3. One program — `program.php`
 
 ```
-Screen: a single program. Signed out.
+Screen: a single program, seen by a signed-in donor. Bar two is present and reads
+"MY GIVING" then the links "My donations  Annual statement  Updates  Messages", none
+underlined. In bar one, the right side shows "Nadia Rashed" with a small outlined pill
+"DONOR" beside it, then the filled "Donate Now" button, then "Logout".
 
 1. A small text link "← All programs" above everything.
 
 2. A wide card: on the left the title "Winter Blankets" with the line "Warm blankets and
    heaters for families during the winter months." beneath it; on the far right a small
-   outlined pill reading "RELIEF".
+   outlined pill holding a tiny heart glyph and the word "RELIEF".
 
-3. Two equal columns side by side:
+3. Two equal columns side by side, the same height:
    - Left: a tall image rectangle with a diagonal cross, filling the column height.
-   - Right: a card containing, top to bottom, "Raised 800 JOD" on the left and "of 5,000
-     JOD" on the right; a thin progress bar; a line with a small two-person glyph reading
-     "People helped: 1"; the sub-heading "Who this program is for"; two lines of
-     eligibility text; and a filled button "Donate to this program".
+   - Right: a card containing, top to bottom, "Raised 800.00 JOD" on the left and "of
+     5,000.00 JOD" on the right; a thin progress bar 16% filled; a line with a small
+     two-person glyph reading "People helped: 1"; the sub-heading "Who this program is
+     for"; the line "Families with a monthly income under 300 JOD living in an unheated
+     home."; and a filled button "Donate to this program".
 
-4. The heading "What your donation has done", then two equal cards side by side, each with
-   a bold report title, a small grey date line, and three lines of body text.
+4. The heading "What your donation has done", then a single card occupying the left half of
+   a two-column grid, with the right half empty. The card holds the bold title "First 120
+   blankets delivered", a small grey date line "2026-08-31 08:24:46", and three lines of
+   body text.
+
+Note: that donate button only exists because the viewer is signed in as a donor. Signed
+out, the same slot holds a tinted notice reading "Please log in to donate to this
+program." — draw the signed-in version.
 ```
 
 ---
