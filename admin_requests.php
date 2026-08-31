@@ -76,12 +76,12 @@ include 'header.php';
 
     <?php foreach ($requests as $request) { ?>
         <div class="card">
-            <h3>
+            <h2>
                 <?php echo htmlspecialchars($request['title']); ?>
                 <span class="tag <?php echo $request['status']; ?>"><?php echo $request['status']; ?></span>
-            </h3>
+            </h2>
 
-            <p class="raised">
+            <p class="meta">
                 <?php echo htmlspecialchars($request['name']); ?>
                 &middot; <?php echo htmlspecialchars($request['email']); ?>
                 <?php if ($request['city'] !== null && $request['city'] !== '') { ?>
@@ -92,7 +92,7 @@ include 'header.php';
                 &middot; applied <?php echo $request['created_at']; ?>
             </p>
 
-            <p class="raised">
+            <p class="meta">
                 Home:
                 <?php echo $request['household_size'] === null ? 'not given' : $request['household_size'] . ' people'; ?>
                 &middot; income

@@ -15,7 +15,6 @@
     --primary-strong: #008378;
     --accent:         #b05e3d;   /* clay, only for Donate Now */
     --accent-strong:  #924628;
-    --secondary:      #0058be;
 
     --bg:             #f8f9ff;   /* page background */
     --card:           #ffffff;   /* anything sitting on the page */
@@ -486,7 +485,16 @@ h3 {
                 border-color var(--dur-2) var(--ease);
 }
 
-.card h3 { margin: 0 0 8px; }
+/* A card's title is an h2 when nothing above it on the page is, and an h3 when
+   it sits under a section heading. The level follows the document; the look
+   must not change with it. */
+.card h2, .card h3,
+.program .body h2, .program .body h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
 
 /* a photo used as an illustration beside a card */
 .figure {
@@ -614,8 +622,11 @@ h3 {
 
 .bar div { height: 100%; background: var(--primary); border-radius: var(--r-full); }
 
-.raised { font-size: 14px; color: var(--muted); }
-.raised b { color: var(--primary); }
+/* Small muted text: a date, an email, an eligibility note. It used to be
+   called .raised, which named one of its thirteen uses and lied about the
+   other twelve. */
+.meta { font-size: 14px; color: var(--muted); }
+.meta b { color: var(--primary); }
 
 
 /* ---------- forms ---------- */
@@ -958,7 +969,7 @@ th {
 
 .notice.error { background: var(--error-bg); color: var(--error-ink); }
 .notice.ok    { background: var(--ok-bg);    color: var(--primary); }
-.notice.info  { background: var(--tint);     color: var(--secondary); }
+.notice.info  { background: var(--tint);     color: var(--ink); }
 
 .empty {
     padding: 40px;
@@ -1029,7 +1040,7 @@ th {
     margin-bottom: 16px;
 }
 
-.footer h3 { font-size: 14px; font-weight: 600; margin: 0 0 16px; }
+.footer h2 { font-size: 14px; font-weight: 600; margin: 0 0 16px; }
 
 .footer p { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
 

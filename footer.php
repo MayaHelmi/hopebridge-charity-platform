@@ -9,7 +9,7 @@
     </div>
 
     <div>
-        <h3>Quick Links</h3>
+        <h2>Quick Links</h2>
         <ul>
             <li><a href="about.php">About</a></li>
             <li><a href="programs.php">Programs</a></li>
@@ -18,7 +18,7 @@
     </div>
 
     <div>
-        <h3>Take Part</h3>
+        <h2>Take Part</h2>
         <ul>
             <li><a href="register.php">Become a donor</a></li>
             <li><a href="register.php">Apply for help</a></li>
@@ -27,7 +27,7 @@
     </div>
 
     <div>
-        <h3>Connect</h3>
+        <h2>Connect</h2>
         <ul>
             <li><a href="messages.php">Message us</a></li>
         </ul>

@@ -48,8 +48,8 @@ include 'header.php';
 
     <?php foreach ($updates as $update) { ?>
         <div class="card">
-            <h3><?php echo htmlspecialchars($update['title']); ?></h3>
-            <p class="raised">
+            <h2><?php echo htmlspecialchars($update['title']); ?></h2>
+            <p class="meta">
                 <?php echo htmlspecialchars($update['program_title']); ?>
                 &middot; <?php echo $update['created_at']; ?>
             </p>

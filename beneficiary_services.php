@@ -80,11 +80,11 @@ include 'header.php';
 <div class="grid two">
     <?php foreach ($programs as $program) { ?>
         <div class="card">
-            <h3><?php echo htmlspecialchars($program['title']); ?></h3>
+            <h2><?php echo htmlspecialchars($program['title']); ?></h2>
             <p><?php echo htmlspecialchars($program['description']); ?></p>
 
-            <h4 class="mini">Who it is for</h4>
-            <p class="raised"><?php echo htmlspecialchars($program['eligibility']); ?></p>
+            <h3 class="mini">Who it is for</h3>
+            <p class="meta"><?php echo htmlspecialchars($program['eligibility']); ?></p>
 
             <?php if ($me['status'] === 'approved') { ?>
                 <form method="post">

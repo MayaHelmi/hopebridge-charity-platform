@@ -39,7 +39,7 @@ include 'header.php';
                 <td>#<?php echo $donation['id']; ?></td>
                 <td>
                     <?php echo htmlspecialchars($donation['name']); ?><br>
-                    <span class="raised"><?php echo htmlspecialchars($donation['email']); ?></span>
+                    <span class="meta"><?php echo htmlspecialchars($donation['email']); ?></span>
                 </td>
                 <td><?php echo htmlspecialchars($donation['title']); ?></td>
                 <td><?php echo number_format($donation['amount'], 2); ?> JOD</td>

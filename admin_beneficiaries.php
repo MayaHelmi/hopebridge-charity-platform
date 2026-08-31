@@ -64,12 +64,12 @@ include 'header.php';
 
     <?php foreach ($people as $person) { ?>
         <div class="card">
-            <h3>
+            <h2>
                 <?php echo htmlspecialchars($person['name']); ?>
                 <span class="tag <?php echo $person['status']; ?>"><?php echo $person['status']; ?></span>
-            </h3>
+            </h2>
 
-            <p class="raised">
+            <p class="meta">
                 <?php echo htmlspecialchars($person['email']); ?>
                 <?php if ($person['phone'] !== null && $person['phone'] !== '') { ?>
                     &middot; <?php echo htmlspecialchars($person['phone']); ?>

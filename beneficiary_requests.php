@@ -43,12 +43,12 @@ include 'header.php';
 
     <?php foreach ($requests as $request) { ?>
         <div class="card">
-            <h3>
+            <h2>
                 <?php echo htmlspecialchars($request['title']); ?>
                 <span class="tag <?php echo $request['status']; ?>"><?php echo $request['status']; ?></span>
-            </h3>
+            </h2>
 
-            <p class="raised">Applied on <?php echo $request['created_at']; ?></p>
+            <p class="meta">Applied on <?php echo $request['created_at']; ?></p>
 
             <?php if ($request['note'] !== null && $request['note'] !== '') { ?>
                 <p>What you wrote: <?php echo nl2br(htmlspecialchars($request['note'])); ?></p>

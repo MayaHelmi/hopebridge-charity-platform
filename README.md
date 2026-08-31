@@ -226,7 +226,7 @@ email addresses have accounts.
 
 Checked by hand against the running site:
 
-- All 26 pages load with **no PHP warnings or notices** — 45 page/role combinations
+- All 23 pages load with **no PHP warnings or notices** — 45 page/role combinations
   covering anonymous, donor, approved beneficiary, waiting beneficiary and administrator,
   including with missing and nonsense parameters.
 - Signed-out and wrong-role visitors are redirected away from every private page.

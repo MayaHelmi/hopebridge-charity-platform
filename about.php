@@ -16,7 +16,7 @@ include 'header.php';
 <div class="grid two">
 
     <div class="card">
-        <h3>What this platform does</h3>
+        <h2>What this platform does</h2>
         <p>
             HopeBridge is one place where three groups of people meet: the donors
             who give, the families who need help, and the administrators who make

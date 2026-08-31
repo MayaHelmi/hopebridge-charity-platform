@@ -51,7 +51,7 @@ include 'header.php';
         <tr><th>Amount</th><td><strong><?php echo number_format($donation['amount'], 2); ?> JOD</strong></td></tr>
     </table>
 
-    <p class="raised gap-t">
+    <p class="meta gap-t">
         Training project - this receipt is not a real tax document.
     </p>
 </div>

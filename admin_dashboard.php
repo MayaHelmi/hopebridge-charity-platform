@@ -121,7 +121,7 @@ include 'header.php';
             <tr>
                 <td>
                     <?php echo htmlspecialchars($row['name']); ?><br>
-                    <span class="raised"><?php echo htmlspecialchars($row['email']); ?></span>
+                    <span class="meta"><?php echo htmlspecialchars($row['email']); ?></span>
                 </td>
                 <td><?php echo $row['times']; ?></td>
                 <td><?php echo number_format($row['total'], 2); ?> JOD</td>
@@ -136,7 +136,7 @@ include 'header.php';
 
 <table>
     <tr>
-        <th>Program</th><th>Donations</th><th>Raised</th><th>Goal</th><th>Families helped</th>
+        <th>Program</th><th>Donations</th><th>Raised</th><th>Goal</th><th>People helped</th>
     </tr>
     <?php foreach ($by_program as $row) { ?>
         <tr>

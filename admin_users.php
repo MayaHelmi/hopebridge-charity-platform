@@ -86,7 +86,7 @@ include 'header.php';
             <td><?php echo $user['provider']; ?></td>
             <td>
                 <?php if ($user['id'] == $_SESSION['user_id']) { ?>
-                    <span class="raised">this is you</span>
+                    <span class="meta">this is you</span>
 
                 <?php } elseif ($user['role'] === 'admin') { ?>
                     <form method="post">
@@ -101,7 +101,7 @@ include 'header.php';
                     </form>
 
                 <?php } else { ?>
-                    <span class="raised">&mdash;</span>
+                    <span class="meta">&mdash;</span>
                 <?php } ?>
             </td>
         </tr>

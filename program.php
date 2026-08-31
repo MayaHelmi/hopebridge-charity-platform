@@ -68,14 +68,14 @@ include 'header.php';
 
     <div class="card">
         <div class="money">
-            <span>Raised <?php echo number_format($program['raised'], 2); ?> JOD</span>
-            <span class="goal">of <?php echo number_format($program['goal_amount'], 2); ?> JOD</span>
+            <span>Raised <?php echo number_format($program['raised'], 0); ?> JOD</span>
+            <span class="goal">of <?php echo number_format($program['goal_amount'], 0); ?> JOD</span>
         </div>
         <div class="bar"><div style="width:<?php echo round($percent); ?>%"></div></div>
 
-        <p class="served gap-t">Beneficiaries helped: <?php echo $helped['total']; ?></p>
+        <p class="served gap-t">People helped: <?php echo $helped['total']; ?></p>
 
-        <h3>Who this program is for</h3>
+        <h2>Who this program is for</h2>
         <p><?php echo htmlspecialchars($program['eligibility']); ?></p>
 
         <?php if (!isset($_SESSION['user_id'])) { ?>
@@ -106,7 +106,7 @@ include 'header.php';
         <?php foreach ($updates as $update) { ?>
             <div class="card">
                 <h3><?php echo htmlspecialchars($update['title']); ?></h3>
-                <p class="raised"><?php echo $update['created_at']; ?></p>
+                <p class="meta"><?php echo $update['created_at']; ?></p>
                 <p><?php echo nl2br(htmlspecialchars($update['body'])); ?></p>
             </div>
         <?php } ?>

@@ -115,10 +115,10 @@ include 'header.php';
                 </div>
 
                 <div class="body">
-                    <h3><?php echo htmlspecialchars($program['title']); ?></h3>
+                    <h2><?php echo htmlspecialchars($program['title']); ?></h2>
                     <p><?php echo htmlspecialchars($program['description']); ?></p>
 
-                    <span class="served">Beneficiaries helped: <?php echo $program['helped']; ?></span>
+                    <span class="served">People helped: <?php echo $program['helped']; ?></span>
 
                     <div class="money">
                         <span>Raised <?php echo number_format($program['raised'], 0); ?> JOD</span>

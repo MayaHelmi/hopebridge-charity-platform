@@ -42,7 +42,7 @@ include 'header.php';
 <div class="stats">
     <div>
         <span class="number"><?php echo number_format($helped['total']); ?></span>
-        <span class="label">Applications Approved</span>
+        <span class="label">People Helped</span>
     </div>
     <div>
         <span class="number"><?php echo number_format($given['total'], 0); ?></span>
@@ -72,7 +72,7 @@ include 'header.php';
             <th>Category</th>
             <th>Raised</th>
             <th>Goal</th>
-            <th>Families helped</th>
+            <th>People helped</th>
         </tr>
         <?php foreach ($programs as $program) { ?>
             <tr>
@@ -99,7 +99,7 @@ include 'header.php';
         <?php foreach ($updates as $update) { ?>
             <div class="card">
                 <h3><?php echo htmlspecialchars($update['title']); ?></h3>
-                <p class="raised">
+                <p class="meta">
                     <?php echo htmlspecialchars($update['program_title']); ?>
                     &middot; <?php echo $update['created_at']; ?>
                 </p>
