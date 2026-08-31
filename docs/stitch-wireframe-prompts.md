@@ -498,19 +498,26 @@ Screen A — Donations, with "Donations" underlined:
 A wide card with the heading "Donations" and the line "Everything that has been given to
 the charity." Then a full-width table. Header row "Number | Donor | Program | Amount |
 Date", with each Donor cell holding a name above a smaller grey email address. Seven body
-rows, newest first, starting:
+rows, newest first, exactly these:
 - #7 | Omar Haddad / giver@example.com | Winter Blankets | 400.00 JOD | 2026-08-25 08:50:00
 - #6 | Nadia Rashed / donor@example.com | Medical Aid | 200.00 JOD | 2026-08-18 16:35:00
 - #5 | Omar Haddad / giver@example.com | Emergency Food Parcels | 300.00 JOD | 2026-08-09 11:00:00
+- #4 | Omar Haddad / giver@example.com | School Supplies | 500.00 JOD | 2026-07-28 14:22:00
+- #3 | Nadia Rashed / donor@example.com | Winter Blankets | 150.00 JOD | 2026-07-21 09:05:00
+- #2 | Nadia Rashed / donor@example.com | Emergency Food Parcels | 100.00 JOD | 2026-07-03 18:40:00
+- #1 | Nadia Rashed / donor@example.com | Winter Blankets | 250.00 JOD | 2026-06-12 10:15:00
 
 Screen B — Users, with "Users" underlined:
 A wide card with the heading "Users" and the line "Everyone with an account, and who can
 reach the admin pages." Then a tinted notice reading "Only donor accounts can be made
 admins. Beneficiary records hold private information, so those accounts are kept out of
 the admin side." Then a table. Header row "Name | Email | Role | Signed up with | Access",
-with five body rows. In the Access column: the administrator's own row reads "this is you"
-in small grey text; each donor row holds a small outlined "Make admin" button; each
-beneficiary row holds only a dash.
+then exactly these five rows:
+- Site Admin | admin@hopebridge.jo | admin | local | the small grey words "this is you"
+- Nadia Rashed | donor@example.com | donor | local | a small outlined button "Make admin"
+- Omar Haddad | giver@example.com | donor | local | a small outlined button "Make admin"
+- Khaled Mansour | family@example.com | beneficiary | local | an em dash
+- Rania Odeh | waiting@example.com | beneficiary | local | an em dash
 ```
 
 ---
