@@ -1,8 +1,18 @@
 # HopeBridge
 
 A charity platform built with plain **PHP 8** and **MySQL**, for the Orange Digital
-Center PHP & SQL project. Three kinds of user share one site: **donors** who give,
-**beneficiaries** who ask for help, and **administrators** who run the charity.
+Center PHP & SQL project.
+
+| Deliverable | Link |
+| --- | --- |
+| Repository | <https://github.com/MayaHelmi/hopebridge-charity-platform> |
+| Mockups | [docs/mockups/](docs/mockups/) — four screens plus the design system |
+| Wireframes | <https://claude.ai/code/artifact/e30ecb73-492b-4ee4-95c5-8d6df0c2e06c> |
+| Presentation slides | <https://claude.ai/code/artifact/2e9acccb-8b28-4044-a67f-694e05d1dc80> |
+| Trello board | *to be created — the cards to enter are in [docs/trello-board.md](docs/trello-board.md)* |
+
+Three kinds of user share one site: **donors** who give, **beneficiaries** who ask for
+help, and **administrators** who run the charity.
 
 No framework, no Composer, no build step. Flat PHP files, one stylesheet, and a
 `schema.sql` that creates the database and fills it with example data.
@@ -30,13 +40,10 @@ The full colour, type, spacing and component specification is in
 
 ### Wireframes
 
-Wireframes and the user-story traceability table (every lettered story in the brief
-mapped to the screen that satisfies it):
-<https://claude.ai/code/artifact/ee7581e7-0fd3-4300-9faf-c33d9b030992>
-
-> **Note:** that wireframe document still shows the earlier layout and the earlier
-> *Amal Charity* name. It needs to be redrawn against the HopeBridge design above
-> before it is handed in.
+Every screen drawn as structure rather than pixels, with numbered notes on the decisions
+that are not obvious from the drawing, and a table tracing each lettered story in the
+brief to the file that answers it:
+<https://claude.ai/code/artifact/e30ecb73-492b-4ee4-95c5-8d6df0c2e06c>
 
 ---
 
@@ -109,6 +116,7 @@ Every name, email and amount in `schema.sql` is invented for the demo.
 | `donor_donations.php` | Everything this donor has given, with a link to each receipt. |
 | `donor_receipt.php` | A printable receipt for one donation. |
 | `donor_updates.php` | Reports about the programs this donor actually gave to. |
+| `donor_tax_report.php` | One year of giving on a single printable page, with totals. |
 
 **Beneficiary**
 
@@ -254,7 +262,7 @@ email addresses have accounts.
 
 Checked by hand against the running site:
 
-- All 23 pages load with **no PHP warnings or notices** — 45 page/role combinations
+- All 24 pages load with **no PHP warnings or notices** — 45 page/role combinations
   covering anonymous, donor, approved beneficiary, waiting beneficiary and administrator,
   including with missing and nonsense parameters.
 - Signed-out and wrong-role visitors are redirected away from every private page.
