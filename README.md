@@ -187,9 +187,10 @@ so there is no stage where the layout exists but the content does not. There is 
 to put a content skeleton in front of, and adding one would only be theatre.
 
 What *does* arrive late is a photograph — they are 140 to 190KB each. So the space a
-photograph is about to fill carries a quiet shimmer until it paints. No JavaScript is
-involved: the placeholder is simply the background of the box the image sits in, and the
-image covers it on arrival.
+photograph is about to fill carries a quiet shimmer until it paints. The placeholder is
+the background of the box the image sits in, so the image covers it on arrival; a few
+lines in `script.js` then switch the shimmer off, because covering an animation does not
+stop it running.
 
 Only boxes that really do contain an image get it. A program with no photograph shows its
 category on a teal panel, and that panel does not shimmer, because nothing is coming.
@@ -218,8 +219,8 @@ collapses every animation and transition, and printing disables them too.
 
 ## JavaScript
 
-There is one small script, `script.js`, and it does one thing: the **eye button** next to
-each password box, which shows and hides what has been typed. The buttons are written into
+There is one small script, `script.js`, and it does two things. The first is the **eye
+button** next to each password box, which shows and hides what has been typed. The buttons are written into
 the page with the `hidden` attribute already on them and the script is what removes it, so
 somebody with JavaScript switched off never sees a button that would not work.
 
@@ -227,6 +228,9 @@ The two pictures, `images/eye.svg` and `images/eye-off.svg`, are set in `style.c
 button itself is an empty tag and the script only has to add or remove a class. The meaning
 is carried by the `aria-label`, which changes with the state, because the button has no
 words in it.
+
+The second is switching off the loading shimmer once a photograph has arrived. Without it
+the animation would keep running behind an image that finished loading long ago.
 
 Everything else on the site, including the mobile menu, works without JavaScript.
 

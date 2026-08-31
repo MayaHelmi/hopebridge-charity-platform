@@ -27,3 +27,25 @@ document.querySelectorAll('.reveal').forEach(function (button) {
         }
     });
 });
+
+
+// The shimmer behind a photograph is a background, so the photograph covers it
+// on arrival - but covering it does not stop it. Left alone it would keep
+// animating for as long as the page is open, out of sight and for no reason.
+// This switches it off the moment the image is actually there.
+
+document.querySelectorAll('.photo img, .figure > img').forEach(function (image) {
+
+    var box = image.parentElement;
+
+    function done() {
+        box.classList.add('loaded');
+    }
+
+    if (image.complete) {
+        done();                                  // already cached
+    } else {
+        image.addEventListener('load', done);
+        image.addEventListener('error', done);   // a missing file must not shimmer for ever either
+    }
+});
