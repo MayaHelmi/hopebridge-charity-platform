@@ -37,7 +37,7 @@ include 'header.php';
             </p>
 
             <div class="actions">
-                <a class="button give" href="programs.php">Donate Now &#9825;</a>
+                <a class="button give with-heart" href="programs.php">Donate Now</a>
                 <a class="button quiet" href="programs.php">Explore Programs</a>
             </div>
         </div>
@@ -98,7 +98,8 @@ include 'header.php';
                             <span class="stand-in"><?php echo htmlspecialchars($program['category']); ?></span>
                         <?php } ?>
 
-                        <span class="kind"><?php echo htmlspecialchars($program['category']); ?></span>
+                        <?php $kind = preg_replace('/[^a-z]/', '', strtolower($program['category'])); ?>
+                        <span class="kind kind-<?php echo $kind; ?>"><?php echo htmlspecialchars($program['category']); ?></span>
                     </div>
 
                     <div class="body">

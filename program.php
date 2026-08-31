@@ -50,7 +50,8 @@ include 'header.php';
         <h1><?php echo htmlspecialchars($program['title']); ?></h1>
         <p class="subtitle"><?php echo htmlspecialchars($program['description']); ?></p>
     </div>
-    <span class="tag approved"><?php echo htmlspecialchars($program['category']); ?></span>
+    <?php $kind = preg_replace('/[^a-z]/', '', strtolower($program['category'])); ?>
+    <span class="kind kind-<?php echo $kind; ?>"><?php echo htmlspecialchars($program['category']); ?></span>
 </div>
 
 <div class="grid two">

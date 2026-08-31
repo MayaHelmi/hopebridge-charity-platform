@@ -111,7 +111,8 @@ include 'header.php';
                         <span class="stand-in"><?php echo htmlspecialchars($program['category']); ?></span>
                     <?php } ?>
 
-                    <span class="kind"><?php echo htmlspecialchars($program['category']); ?></span>
+                    <?php $kind = preg_replace('/[^a-z]/', '', strtolower($program['category'])); ?>
+                    <span class="kind kind-<?php echo $kind; ?>"><?php echo htmlspecialchars($program['category']); ?></span>
                 </div>
 
                 <div class="body">

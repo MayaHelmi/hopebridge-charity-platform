@@ -296,6 +296,11 @@ Checked by hand against the running site:
   exactly `--primary` `#00685F` and `--accent` `#B05E3D`, so the mark matches the wordmark
   beside it and the Donate button. Each visible pixel was mapped to whichever heart it
   belonged to and its transparency left alone, so the edges are as smooth as they were.
+- `images/icons/` holds the interface icons, one small SVG each: the magnifier in the
+  search field, the people mark beside "People helped", the heart on the hero's Donate
+  button, the bars on the small-screen menu button, and one per programme category. They
+  are set as CSS backgrounds rather than written into the markup, so a page carries no
+  icon code, and a category the icons do not cover falls back to a plain tag.
 - `images/` holds the pictures the site itself uses. `planting.jpg` is the illustration
   on the About page. `hero.jpg` is the original download and is left untouched;
   `hero-crop.jpg` is the same picture with the AI rendering artefact trimmed off the top,
