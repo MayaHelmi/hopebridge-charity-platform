@@ -1,7 +1,8 @@
 # Stitch prompts — wireframes
 
-One prompt per screen. Every label below is the wording the built application actually
-uses, so the wireframes will match the code rather than an idealised version of it.
+Sixteen prompts covering all 24 pages. Every label below is the wording the built
+application actually uses, so the wireframes will match the code rather than an idealised
+version of it.
 
 **How to use these.** Stitch generates one screen per prompt. Paste **Block A** at the top
 of every prompt, then one numbered screen block underneath it. If Stitch offers a fidelity
@@ -335,6 +336,207 @@ Then the heading "Add a program" above a form card, about 480px wide, with the f
 Then the heading "Write a report for the donors" above a second form card the same width,
 with "Which program" as a dropdown, "Title" as a field, "What happened" as a tall text
 area, and a filled button "Publish the report".
+```
+
+---
+
+## 10. Messages — `messages.php`
+
+```
+Draw these as TWO screens stacked on one frame. The same page serves both sides, and the
+difference between them is the point.
+
+Screen A — the administrator's view. Bar two reads "ADMINISTRATION" with "Messages"
+underlined; bar one shows "Site Admin" with an "ADMIN" pill, then "Logout".
+A wide card with the heading "Messages" and the line "Choose who you want to write to."
+Then a row of four outlined pill buttons, the first one filled to show it is selected:
+"Khaled Mansour (beneficiary)", "Nadia Rashed (donor)", "Omar Haddad (donor)",
+"Rania Odeh (beneficiary)".
+Then the heading "Conversation with Khaled Mansour".
+Then a dashed-outline empty box reading "No messages yet. Write the first one below."
+Then a card about 640px wide with a text area labelled "Your message" and a filled button
+"Send".
+
+Screen B — the beneficiary's view. Bar two reads "MY SUPPORT" with "Messages" underlined;
+bar one shows "Khaled Mansour" with a "BENEFICIARY" pill, then "Logout".
+A wide card with the heading "Messages" and the line "Write to the charity if you have a
+question or need more support. Only you and the admin can read this."
+There is NO row of people to choose from — a beneficiary only ever writes to the charity.
+Then the heading "Conversation with Site Admin", the same dashed empty box, and the same
+composer card.
+
+For reference, once a conversation exists each message is a small card holding a grey line
+with the sender and a timestamp above the message text, and the viewer's own messages sit
+on a lightly tinted card instead of a white one.
+```
+
+---
+
+## 11. Applications — `admin_requests.php`
+
+```
+Screen: the administrator's queue of applications. Bar two reads "ADMINISTRATION" with
+"Applications" underlined; bar one shows "Site Admin" with an "ADMIN" pill, then "Logout".
+
+1. A wide card with the heading "Applications for help" and the line "Each application,
+   with the details you need to decide."
+
+2. A vertical stack of two application cards, the undecided one first.
+
+   Each card: the program name with a small outlined status pill beside it; a grey line
+   holding the applicant's name, email, city and the date applied, separated by middle
+   dots; a second grey line reading "Home: N people · income NNN.NN JOD"; the applicant's
+   own words as a paragraph; a field labelled "Reply for this person (optional)"; and two
+   buttons side by side, a filled "Accept" and an outlined "Refuse".
+
+   Use these two, in this order:
+   - "Emergency Food Parcels" · PENDING · Khaled Mansour · family@example.com · Zarqa ·
+     applied 2026-08-20 19:10:00 · Home: 6 people · income 180.00 JOD ·
+     "Groceries have been hard to cover this month."
+   - "Winter Blankets" · APPROVED · Khaled Mansour · family@example.com · Zarqa ·
+     applied 2026-06-05 12:00:00 · Home: 6 people · income 180.00 JOD ·
+     "We have no heating and four children at home."
+```
+
+---
+
+## 12. A donor's lists — `donor_donations.php`, `donor_updates.php`
+
+```
+Draw these as TWO screens stacked on one frame. Signed in as a donor: bar two reads
+"MY GIVING" then "My donations  Annual statement  Updates  Messages"; bar one shows
+"Nadia Rashed" with a "DONOR" pill, the filled "Donate Now" button, then "Logout".
+
+Screen A — My donations, with "My donations" underlined:
+A wide card with the heading "My donations" and the line "You have given 700.00 JOD in
+total. Thank you." Then a full-width table. Header row "Number | Program | Amount | Date |
+Receipt", then exactly:
+- #6 | Medical Aid | 200.00 JOD | 2026-08-18 16:35:00 | View
+- #3 | Winter Blankets | 150.00 JOD | 2026-07-21 09:05:00 | View
+- #2 | Emergency Food Parcels | 100.00 JOD | 2026-07-03 18:40:00 | View
+- #1 | Winter Blankets | 250.00 JOD | 2026-06-12 10:15:00 | View
+Each "View" is a text link.
+
+Screen B — Updates, with "Updates" underlined:
+A wide card with the heading "Updates" and the line "What has happened in the programs you
+gave to." Then a vertical stack of two cards, each with a bold report title, a small grey
+line holding the program name and a timestamp, and three lines of body text:
+- "Food parcels reach 85 families" · Emergency Food Parcels
+- "First 120 blankets delivered" · Winter Blankets
+```
+
+---
+
+## 13. A beneficiary's applications — `beneficiary_requests.php`
+
+```
+Screen: the applications one beneficiary has sent. Bar two reads "MY SUPPORT" with
+"My requests" underlined; bar one shows "Khaled Mansour" with a "BENEFICIARY" pill, then
+"Logout", and no Donate button.
+
+1. A wide card with the heading "My requests" and the line "Every application you have sent
+   and where it has got to."
+
+2. A vertical stack of two cards, the undecided one first. Each card: the program name with
+   a small outlined status pill beside it; a grey line reading "Applied on" and a
+   timestamp; a line beginning "What you wrote:" followed by the applicant's own words; and
+   for a decided application, a tinted box beginning "Reply from the charity:".
+
+   Use these two, in this order:
+   - "Emergency Food Parcels" · PENDING · applied 2026-08-20 19:10:00 · "Groceries have
+     been hard to cover this month." · no reply box
+   - "Winter Blankets" · APPROVED · applied 2026-06-05 12:00:00 · "We have no heating and
+     four children at home." · reply box reading "Reply from the charity: Approved -
+     blankets delivered in June."
+```
+
+---
+
+## 14. The public pages — `about.php`, `impact.php`
+
+```
+Draw these as TWO screens stacked on one frame. Signed out, so no second bar.
+
+Screen A — About, with "About" underlined in bar one:
+A wide card with the heading "About HopeBridge" and the line "Connecting compassion with
+community needs." Then a two-column row: on the left a card headed "What this platform
+does" with two paragraphs; on the right a tall image rectangle with a diagonal cross.
+Then the heading "The three kinds of account" above three equal cards titled "Donors",
+"Beneficiaries" and "Administrators", each with a paragraph and a text link at the very
+bottom — "Register as a donor", "Apply for help", "Administrator login" — and the three
+links must sit on the same line as each other even though the paragraphs differ in length.
+Then the heading "How a donation travels" above three equal cards titled "1. Choose",
+"2. Give", "3. See it work", each with two lines of text.
+
+Screen B — Impact, with "Impact" underlined in bar one:
+A wide card with the heading "Our impact" and the line "Every number here is counted from
+our own records, as it stands today." Then a single wide card split into four equal columns
+by thin vertical hairlines: "1 / People Helped", "1,900 / JOD Donated", "7 / Donations
+Made", "2 / Registered Donors".
+Then the heading "How each program is doing" above a table. Header row "Program | Category
+| Raised | Goal | People helped", then:
+- Winter Blankets | Relief | 800.00 JOD | 5,000.00 JOD | 1
+- School Supplies | Education | 500.00 JOD | 3,000.00 JOD | 0
+- Emergency Food Parcels | Food | 400.00 JOD | 8,000.00 JOD | 0
+- Medical Aid | Health | 200.00 JOD | 6,000.00 JOD | 0
+Then the heading "Reports from the field" above a two-column grid of two cards, each with a
+bold report title, a grey program-and-date line, and three lines of body text.
+```
+
+---
+
+## 15. The administrator's tables — `admin_donations.php`, `admin_users.php`
+
+```
+Draw these as TWO screens stacked on one frame. Signed in as an administrator, bar two
+reads "ADMINISTRATION" with the relevant link underlined; bar one shows "Site Admin" with
+an "ADMIN" pill, then "Logout".
+
+Screen A — Donations, with "Donations" underlined:
+A wide card with the heading "Donations" and the line "Everything that has been given to
+the charity." Then a full-width table. Header row "Number | Donor | Program | Amount |
+Date", with each Donor cell holding a name above a smaller grey email address. Seven body
+rows, newest first, starting:
+- #7 | Omar Haddad / giver@example.com | Winter Blankets | 400.00 JOD | 2026-08-25 08:50:00
+- #6 | Nadia Rashed / donor@example.com | Medical Aid | 200.00 JOD | 2026-08-18 16:35:00
+- #5 | Omar Haddad / giver@example.com | Emergency Food Parcels | 300.00 JOD | 2026-08-09 11:00:00
+
+Screen B — Users, with "Users" underlined:
+A wide card with the heading "Users" and the line "Everyone with an account, and who can
+reach the admin pages." Then a tinted notice reading "Only donor accounts can be made
+admins. Beneficiary records hold private information, so those accounts are kept out of
+the admin side." Then a table. Header row "Name | Email | Role | Signed up with | Access",
+with five body rows. In the Access column: the administrator's own row reads "this is you"
+in small grey text; each donor row holds a small outlined "Make admin" button; each
+beneficiary row holds only a dash.
+```
+
+---
+
+## 16. Password reset — `forgot.php`, `reset.php`
+
+```
+Draw these as TWO screens side by side on one frame, each 448px wide and centred in its own
+half. Signed out, so no second bar.
+
+Screen A — Forgot password:
+A single card. Centred at the top, "Forgot password?" and the line "Enter your email address
+and we will send you a link to choose a new one." Then a field labelled "Email Address"
+showing the placeholder "you@example.com", then a full-width filled button "Send me a reset
+link", then the centred line "Remembered it? Back to login".
+
+Screen B — Choose a new password:
+A single card. Centred at the top, "New password" and the line "Choose the password you
+want to use from now on." Then a field labelled "New password" with a small eye glyph
+inside its right edge, then a field labelled "Type it again" with the same glyph, then a
+full-width filled button "Save my new password", then the centred line "Changed your mind?
+Back to login".
+
+For reference, once the form on screen A is submitted the card replaces the form with a
+tinted box reading "If that email address has an account, a reset link has been sent to it.
+The link stops working after one hour." — and an expired or reused link turns screen B into
+a tinted warning reading "This link does not work any more. It may have been used already,
+or it may be more than an hour old." above a link "Ask for a new link".
 ```
 
 ---
