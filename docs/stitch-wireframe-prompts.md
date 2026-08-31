@@ -421,8 +421,8 @@ Screen B — Updates, with "Updates" underlined:
 A wide card with the heading "Updates" and the line "What has happened in the programs you
 gave to." Then a vertical stack of two cards, each with a bold report title, a small grey
 line holding the program name and a timestamp, and three lines of body text:
-- "Food parcels reach 85 families" · Emergency Food Parcels
-- "First 120 blankets delivered" · Winter Blankets
+- "Food parcels reach 85 families" · Emergency Food Parcels · 2026-08-31 08:24:46
+- "First 120 blankets delivered" · Winter Blankets · 2026-08-31 08:24:46
 ```
 
 ---
