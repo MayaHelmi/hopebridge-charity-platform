@@ -58,7 +58,7 @@ Below the header, top to bottom:
 
 2. A single wide card overlapping the bottom edge of the hero by about 64px, split into
    four equal columns by thin vertical hairlines. Each column is a large number above a
-   small caption, centred: "12,450 / People Helped", "1,900 / JOD Donated", "4 / Active
+   small caption, centred: "1 / People Helped", "1,900 / JOD Donated", "4 / Active
    Programs", "2 / Donors".
 
 3. A row with the heading "Featured programs" on the left and a text link "See all
