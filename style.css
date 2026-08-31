@@ -414,7 +414,14 @@ h3 {
     padding: 0 40px;
 }
 
-.impact-bar .inner {
+/* One row of numbers in a single card, split by hairlines.
+
+   This is the ONLY stat treatment on the site. The home page, the impact page
+   and the admin dashboard all use it, so the same kind of information always
+   looks the same. There used to be a second one - separate cards with a teal
+   top border - and having two ways to show four numbers is exactly the kind of
+   drift that makes a site feel assembled rather than designed. */
+.stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
@@ -426,9 +433,9 @@ h3 {
     text-align: center;
 }
 
-.impact-bar .inner > div + div { border-left: 1px solid var(--line); }
+.stats > div + div { border-left: 1px solid var(--line); }
 
-.impact-bar .number {
+.stats .number {
     display: block;
     font-size: 32px;
     font-weight: 700;
@@ -438,7 +445,7 @@ h3 {
     margin-bottom: 4px;
 }
 
-.impact-bar .label { font-size: 14px; color: var(--muted); }
+.stats .label { font-size: 14px; color: var(--muted); }
 
 /* a strip of content on the home page */
 .band {
@@ -609,35 +616,6 @@ h3 {
 
 .raised { font-size: 14px; color: var(--muted); }
 .raised b { color: var(--primary); }
-
-
-/* the number boxes on the admin dashboard */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    margin-bottom: 8px;
-}
-
-.stat {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-top: 4px solid var(--primary);
-    border-radius: var(--r-md);
-    box-shadow: var(--lift-1);
-    padding: 24px;
-    text-align: center;
-}
-
-.stat .number {
-    display: block;
-    font-size: 32px;
-    font-weight: 700;
-    line-height: 1.2;
-    color: var(--primary);
-}
-
-.stat .label { font-size: 14px; color: var(--muted); }
 
 
 /* ---------- forms ---------- */
@@ -1113,7 +1091,7 @@ th {
 
 .page-head,
 .hero .words > div,
-.impact-bar .inner,
+.stats,
 .grid > * {
     animation: rise 320ms var(--ease) both;
     animation-delay: 60ms;
@@ -1144,12 +1122,12 @@ th {
 
 @media (max-width: 900px) {
     .grid, .grid.two { grid-template-columns: repeat(2, 1fr); }
-    .stats           { grid-template-columns: repeat(2, 1fr); }
 
-    .impact-bar .inner { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
-    /* with two per row the divider belongs on the second column only */
-    .impact-bar .inner > div + div       { border-left: none; }
-    .impact-bar .inner > div:nth-child(even) { border-left: 1px solid var(--line); }
+    /* two numbers across, and with two per row the divider belongs on the
+       second column only */
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
+    .stats > div + div                { border-left: none; }
+    .stats > div:nth-child(even)      { border-left: 1px solid var(--line); }
 
     .footer .inner { grid-template-columns: repeat(2, 1fr); }
 
@@ -1161,7 +1139,6 @@ th {
 
 @media (max-width: 640px) {
     .grid, .grid.two { grid-template-columns: 1fr; }
-    .stats           { grid-template-columns: 1fr; }
 
     .topbar { padding: 16px; }
     .page   { padding: 24px 16px 48px; }

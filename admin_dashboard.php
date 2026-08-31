@@ -59,21 +59,21 @@ include 'header.php';
 </div>
 
 <div class="stats">
-    <div class="stat">
+    <div>
         <span class="number"><?php echo number_format($money['total'], 2); ?></span>
-        <span class="label">JOD raised</span>
+        <span class="label">JOD Raised</span>
     </div>
-    <div class="stat">
+    <div>
         <span class="number"><?php echo $money['donations']; ?></span>
         <span class="label">Donations</span>
     </div>
-    <div class="stat">
+    <div>
         <span class="number"><?php echo $donors['total']; ?></span>
         <span class="label">Donors</span>
     </div>
-    <div class="stat">
+    <div>
         <span class="number"><?php echo $waiting['total'] + $requests['total']; ?></span>
-        <span class="label">Waiting for you</span>
+        <span class="label">Waiting for You</span>
     </div>
 </div>
 

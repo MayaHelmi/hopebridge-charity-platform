@@ -40,21 +40,21 @@ include 'header.php';
 </div>
 
 <div class="stats">
-    <div class="stat">
+    <div>
         <span class="number"><?php echo number_format($helped['total']); ?></span>
-        <span class="label">Applications approved</span>
+        <span class="label">Applications Approved</span>
     </div>
-    <div class="stat">
+    <div>
         <span class="number"><?php echo number_format($given['total'], 0); ?></span>
-        <span class="label">JOD donated</span>
+        <span class="label">JOD Donated</span>
     </div>
-    <div class="stat">
+    <div>
         <span class="number"><?php echo number_format($given['times']); ?></span>
-        <span class="label">Donations made</span>
+        <span class="label">Donations Made</span>
     </div>
-    <div class="stat">
+    <div>
         <span class="number"><?php echo number_format($donors['total']); ?></span>
-        <span class="label">Registered donors</span>
+        <span class="label">Registered Donors</span>
     </div>
 </div>
 

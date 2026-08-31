@@ -45,7 +45,7 @@ include 'header.php';
 </section>
 
 <section class="impact-bar">
-    <div class="inner">
+    <div class="stats">
         <div>
             <span class="number"><?php echo number_format($helped['total']); ?></span>
             <span class="label">People Helped</span>
