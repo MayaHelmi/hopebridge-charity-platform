@@ -40,6 +40,11 @@ mapped to the screen that satisfies it):
 
 ---
 
+## Version control
+
+This folder is a git repository, committed as `MayaHelmi`. **No remote is configured and
+nothing has been pushed** — creating the GitHub repository and pushing is yours to do.
+
 ## Running it
 
 You need PHP 8 and MySQL running locally.
@@ -179,6 +184,11 @@ loops. Program cards deepen their shadow on hover but do **not** lift or zoom, b
 the card as a whole is not clickable — only the two buttons inside it are, and it must
 not pretend otherwise.
 
+Every hover style sits behind `@media (hover: hover)`. A touch screen has no hover, but a
+browser will still apply those styles on tap and leave them stuck until you touch
+something else; behind that query they never fire on a phone. A faint teal
+`-webkit-tap-highlight-color` acknowledges the press instead of the browser's grey box.
+
 Anyone whose system asks for reduced motion gets none of it; `prefers-reduced-motion`
 collapses every animation and transition, and printing disables them too.
 
@@ -232,6 +242,11 @@ Checked by hand against the running site:
   grows without the row getting taller.
 - Every spacing value in the stylesheet is a multiple of 4, and every font size is on
   the type scale. There are **no inline styles left in any PHP file**.
+- On a phone, a table's action column stays pinned to the right edge while the rest of
+  the row scrolls under it, so *View*, *Save* and *Make admin* are never scrolled out of
+  reach. Tables whose last column is only data are left alone — checked on all six.
+- Measured **zero layout shift** on load: images have no width and height attributes but
+  their containers are sized in CSS, so nothing jumps into place.
 - **Remember me:** no cookie and no row when the box is unticked; with it ticked the
   cookie signs the browser back in after the session is thrown away; the raw token is
   not present anywhere in the database; logging out removes the row and the stale
