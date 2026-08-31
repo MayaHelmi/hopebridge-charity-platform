@@ -272,15 +272,24 @@ Donations  Users  Messages", with Dashboard underlined.
 3. Two stacked callout boxes: "1 beneficiary profile(s) are waiting to be checked. Review
    them." and "1 application(s) for help are waiting for a decision. Review them."
 
-4. The heading "Money by month" above a table with the header row "Month | Donations |
-   Total" and three body rows.
+4. The heading "Money by month" above a table. Header row "Month | Donations | Total",
+   then exactly:
+   - 2026-08 | 3 | 900.00 JOD
+   - 2026-07 | 3 | 750.00 JOD
+   - 2026-06 | 1 | 250.00 JOD
 
-5. The heading "Who gives the most" above a table with the header row "Donor | Times |
-   Total | Average gift | Last gift" and two body rows, where the donor cell holds a name
-   above a smaller grey email address.
+5. The heading "Who gives the most" above a table. Header row "Donor | Times | Total |
+   Average gift | Last gift", then exactly, with each donor cell holding a name above a
+   smaller grey email address:
+   - Omar Haddad / giver@example.com | 3 | 1,200.00 JOD | 400.00 JOD | 2026-08-25 08:50:00
+   - Nadia Rashed / donor@example.com | 4 | 700.00 JOD | 175.00 JOD | 2026-08-18 16:35:00
 
-6. The heading "How each program is doing" above a table with the header row "Program |
-   Donations | Raised | Goal | People helped" and four body rows.
+6. The heading "How each program is doing" above a table. Header row "Program | Donations |
+   Raised | Goal | People helped", then exactly:
+   - Winter Blankets | 3 | 800.00 JOD | 5,000.00 JOD | 1
+   - School Supplies | 1 | 500.00 JOD | 3,000.00 JOD | 0
+   - Emergency Food Parcels | 2 | 400.00 JOD | 8,000.00 JOD | 0
+   - Medical Aid | 1 | 200.00 JOD | 6,000.00 JOD | 0
 ```
 
 ---
