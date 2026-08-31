@@ -35,17 +35,17 @@ $top_donors = $pdo->query('SELECT users.name,
                            LIMIT 5')->fetchAll();
 
 // which programs donors prefer, and how much of each goal is covered
-$by_program = $pdo->query('SELECT programs.title,
+$by_program = $pdo->query("SELECT programs.title,
                                   programs.goal_amount,
                                   COUNT(donations.id) AS donations,
                                   COALESCE(SUM(donations.amount), 0) AS raised,
                                   (SELECT COUNT(*) FROM requests
                                    WHERE requests.program_id = programs.id
-                                     AND requests.status = "approved") AS helped
+                                     AND requests.status = 'approved') AS helped
                            FROM programs
                            LEFT JOIN donations ON donations.program_id = programs.id
                            GROUP BY programs.id
-                           ORDER BY raised DESC')->fetchAll();
+                           ORDER BY raised DESC")->fetchAll();
 
 $page_title = 'Dashboard';
 include 'header.php';

@@ -38,20 +38,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // the other person's name
 $other = null;
 if ($other_id != 0) {
-    $query = $pdo->prepare('SELECT id, name, role FROM users WHERE id = ?');
-    $query->execute([$other_id]);
-    $other = $query->fetch();
+    $find_other = $pdo->prepare('SELECT id, name, role FROM users WHERE id = ?');
+    $find_other->execute([$other_id]);
+    $other = $find_other->fetch();
 }
 
 // the conversation between the two of us, in both directions
 $conversation = [];
 if ($other) {
-    $query = $pdo->prepare('SELECT * FROM messages
+    $find_messages = $pdo->prepare('SELECT * FROM messages
                             WHERE (sender_id = ? AND receiver_id = ?)
                                OR (sender_id = ? AND receiver_id = ?)
                             ORDER BY id');
-    $query->execute([$me, $other_id, $other_id, $me]);
-    $conversation = $query->fetchAll();
+    $find_messages->execute([$me, $other_id, $other_id, $me]);
+    $conversation = $find_messages->fetchAll();
 }
 
 // the admin needs the list of everybody else

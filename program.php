@@ -4,13 +4,13 @@ require 'config.php';
 
 $id = $_GET['id'] ?? 0;
 
-$query = $pdo->prepare("SELECT programs.*, COALESCE(SUM(donations.amount), 0) AS raised
+$find = $pdo->prepare("SELECT programs.*, COALESCE(SUM(donations.amount), 0) AS raised
                         FROM programs
                         LEFT JOIN donations ON donations.program_id = programs.id
                         WHERE programs.id = ? AND programs.active = 1
                         GROUP BY programs.id");
-$query->execute([$id]);
-$program = $query->fetch();
+$find->execute([$id]);
+$program = $find->fetch();
 
 if (!$program) {
     $page_title = 'Program not found';
@@ -21,15 +21,15 @@ if (!$program) {
 }
 
 // how many families this program has already helped
-$query = $pdo->prepare("SELECT COUNT(*) AS total FROM requests
+$count = $pdo->prepare("SELECT COUNT(*) AS total FROM requests
                         WHERE program_id = ? AND status = 'approved'");
-$query->execute([$id]);
-$helped = $query->fetch();
+$count->execute([$id]);
+$helped = $count->fetch();
 
 // the progress reports written about this program
-$query = $pdo->prepare('SELECT * FROM updates WHERE program_id = ? ORDER BY id DESC');
-$query->execute([$id]);
-$updates = $query->fetchAll();
+$reports = $pdo->prepare('SELECT * FROM updates WHERE program_id = ? ORDER BY id DESC');
+$reports->execute([$id]);
+$updates = $reports->fetchAll();
 
 $percent = 0;
 if ($program['goal_amount'] > 0) {

@@ -37,14 +37,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$query = $pdo->prepare('SELECT * FROM beneficiaries WHERE user_id = ?');
-$query->execute([$_SESSION['user_id']]);
-$me = $query->fetch();
+$find = $pdo->prepare('SELECT * FROM beneficiaries WHERE user_id = ?');
+$find->execute([$_SESSION['user_id']]);
+$me = $find->fetch();
 
 // the automatic messages the system has written for this user
-$query = $pdo->prepare('SELECT * FROM notifications WHERE user_id = ? ORDER BY id DESC LIMIT 10');
-$query->execute([$_SESSION['user_id']]);
-$notifications = $query->fetchAll();
+$find_notes = $pdo->prepare('SELECT * FROM notifications WHERE user_id = ? ORDER BY id DESC LIMIT 10');
+$find_notes->execute([$_SESSION['user_id']]);
+$notifications = $find_notes->fetchAll();
 
 $page_title = 'My profile';
 include 'header.php';

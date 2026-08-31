@@ -50,12 +50,14 @@
     --dur-2: 220ms;   /* cards and panels - the things that hold content */
 }
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
 
-/* On a touch screen the browser draws its own grey box over whatever you tap.
-   This replaces it with a faint wash of the brand teal, so a press is
-   acknowledged quietly instead of flashing a default rectangle. */
-* { -webkit-tap-highlight-color: rgba(0, 104, 95, 0.10); }
+    /* On a touch screen the browser draws its own grey box over whatever you
+       tap. This replaces it with a faint wash of the brand teal, so a press is
+       acknowledged quietly instead of flashing a default rectangle. */
+    -webkit-tap-highlight-color: rgba(0, 104, 95, 0.10);
+}
 
 body {
     margin: 0;
@@ -523,15 +525,9 @@ h3 {
     border-radius: var(--r-md);
     box-shadow: var(--lift-1);
     overflow: hidden;
-}
-
-.program {
     transition: box-shadow var(--dur-2) var(--ease),
                 border-color var(--dur-2) var(--ease);
 }
-
-/* No lift and no zoom on hover: the card as a whole is not clickable, only the
-   two buttons inside it are, so it must not pretend otherwise. It just deepens. */
 
 /* the picture strip at the top of a program card, also used on its own page */
 .photo {
@@ -657,9 +653,6 @@ input, select, textarea {
     font-size: 16px;
     background: var(--card);
     color: var(--ink);
-}
-
-input, select, textarea {
     transition: border-color var(--dur-1) var(--ease),
                 box-shadow var(--dur-1) var(--ease);
 }
@@ -1255,7 +1248,12 @@ th {
     .account a.give:hover { background: var(--accent-strong); color: #fff; }
     .subbar nav a:hover { color: var(--primary); border-bottom-color: var(--line); }
     .back a:hover { color: var(--primary); gap: 12px; }
+
+    /* The program card deepens but does not lift or zoom: the card as a whole
+       is not clickable, only the two buttons inside it are, so it must not
+       pretend otherwise. */
     .program:hover { box-shadow: var(--lift-2); border-color: var(--muted); }
+
     input:hover, select:hover, textarea:hover { border-color: var(--muted); }
     button:hover, .button:hover { background: var(--primary-strong); border-color: var(--primary-strong); }
     button.give:hover, .button.give:hover { background: var(--accent-strong); border-color: var(--accent-strong); }

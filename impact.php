@@ -5,22 +5,21 @@ require 'config.php';
 
 $helped  = $pdo->query("SELECT COUNT(*) AS total FROM requests WHERE status = 'approved'")->fetch();
 $given   = $pdo->query('SELECT COALESCE(SUM(amount), 0) AS total, COUNT(*) AS times FROM donations')->fetch();
-$running = $pdo->query('SELECT COUNT(*) AS total FROM programs WHERE active = 1')->fetch();
 $donors  = $pdo->query("SELECT COUNT(*) AS total FROM users WHERE role = 'donor'")->fetch();
 
 // how each program is doing
-$programs = $pdo->query('SELECT programs.title,
+$programs = $pdo->query("SELECT programs.title,
                                 programs.category,
                                 programs.goal_amount,
                                 COALESCE(SUM(donations.amount), 0) AS raised,
                                 (SELECT COUNT(*) FROM requests
                                  WHERE requests.program_id = programs.id
-                                   AND requests.status = "approved") AS helped
+                                   AND requests.status = 'approved') AS helped
                          FROM programs
                          LEFT JOIN donations ON donations.program_id = programs.id
                          WHERE programs.active = 1
                          GROUP BY programs.id
-                         ORDER BY raised DESC')->fetchAll();
+                         ORDER BY raised DESC")->fetchAll();
 
 // the reports the administrators have published
 $updates = $pdo->query('SELECT updates.*, programs.title AS program_title

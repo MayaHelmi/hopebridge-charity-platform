@@ -7,17 +7,17 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'beneficiary') {
     exit;
 }
 
-$query = $pdo->prepare('SELECT * FROM beneficiaries WHERE user_id = ?');
-$query->execute([$_SESSION['user_id']]);
-$me = $query->fetch();
+$find_me = $pdo->prepare('SELECT * FROM beneficiaries WHERE user_id = ?');
+$find_me->execute([$_SESSION['user_id']]);
+$me = $find_me->fetch();
 
-$query = $pdo->prepare('SELECT requests.*, programs.title
+$find_requests = $pdo->prepare('SELECT requests.*, programs.title
                         FROM requests
                         JOIN programs ON programs.id = requests.program_id
                         WHERE requests.beneficiary_id = ?
                         ORDER BY requests.id DESC');
-$query->execute([$me['id']]);
-$requests = $query->fetchAll();
+$find_requests->execute([$me['id']]);
+$requests = $find_requests->fetchAll();
 
 $page_title = 'My requests';
 include 'header.php';
