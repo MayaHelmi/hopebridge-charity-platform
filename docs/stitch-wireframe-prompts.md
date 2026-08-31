@@ -86,13 +86,20 @@ Screen: Active Programs. Signed out.
    dropdown "Sort By: Newest", and a filled button "Search".
 
 2. Below it, a three-column grid of four program cards, so the fourth card starts a second
-   row. Each card, top to bottom: an image rectangle with a diagonal cross, 192px tall,
-   with a small outlined pill top-left holding a tiny line glyph and a category word —
-   use "HEALTH", "FOOD", "EDUCATION" and "RELIEF" for the four cards; a title — use
-   "Medical Aid", "Emergency Food Parcels", "School Supplies", "Winter Blankets"; two lines
-   of description; a line with a small two-person glyph reading "People helped: 0"; a line
-   reading "Raised 200 JOD" left and "of 6,000 JOD" right; a thin progress bar; a divider;
-   two buttons, filled "Donate Now" and outlined "Read More".
+   row on its own.
+
+   Every card has the same structure, top to bottom: an image rectangle with a diagonal
+   cross, 192px tall, with a small outlined pill in its top-left corner holding a tiny line
+   glyph and a category word; then a title; then two lines of description; then a line with
+   a small two-person glyph reading "People helped: N"; then a line with the raised amount
+   on the left and the goal on the right; then a thin progress bar filled to match; then a
+   divider and two buttons side by side, a filled "Donate Now" and an outlined "Read More".
+
+   Use these four, in this order:
+   - HEALTH · "Medical Aid" · People helped: 0 · "Raised 200 JOD" / "of 6,000 JOD" · bar 3% filled
+   - FOOD · "Emergency Food Parcels" · People helped: 0 · "Raised 400 JOD" / "of 8,000 JOD" · bar 5% filled
+   - EDUCATION · "School Supplies" · People helped: 0 · "Raised 500 JOD" / "of 3,000 JOD" · bar 17% filled
+   - RELIEF · "Winter Blankets" · People helped: 1 · "Raised 800 JOD" / "of 5,000 JOD" · bar 16% filled
 ```
 
 ---
