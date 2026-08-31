@@ -286,10 +286,16 @@ Checked by hand against the running site:
 
 ## Pictures
 
-- `images/logo.png` is the HopeBridge mark, two interlocking hearts in the brand teal and
-  clay. It was supplied with a transparent background, so it sits directly on the bar with
-  nothing behind it, and it is used three ways: beside the wordmark in the top bar, above
-  the sign-in card, and as the browser tab icon. It was resized and nothing else.
+- `images/logo.png` is the HopeBridge mark, two interlocking hearts. It was supplied with a
+  transparent background, so it sits directly on the bar with nothing behind it, and it is
+  used three ways: beside the wordmark in the top bar, above the sign-in card, and as the
+  browser tab icon.
+
+  It was resized, and its two colours were corrected. As supplied the hearts were
+  `#02464C` and `#CF512A`, which are close to the brand but not the same; they are now
+  exactly `--primary` `#00685F` and `--accent` `#B05E3D`, so the mark matches the wordmark
+  beside it and the Donate button. Each visible pixel was mapped to whichever heart it
+  belonged to and its transparency left alone, so the edges are as smooth as they were.
 - `images/` holds the pictures the site itself uses. `planting.jpg` is the illustration
   on the About page. `hero.jpg` is the original download and is left untouched;
   `hero-crop.jpg` is the same picture with the AI rendering artefact trimmed off the top,
