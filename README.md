@@ -45,6 +45,10 @@ that are not obvious from the drawing, and a table tracing each lettered story i
 brief to the file that answers it:
 <https://claude.ai/code/artifact/e30ecb73-492b-4ee4-95c5-8d6df0c2e06c>
 
+To regenerate the wireframes in Stitch instead, the prompts are in
+[docs/stitch-wireframe-prompts.md](docs/stitch-wireframe-prompts.md) — one per screen,
+using the exact wording the built application uses.
+
 ---
 
 ## Version control

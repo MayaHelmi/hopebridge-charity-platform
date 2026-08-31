@@ -1,0 +1,294 @@
+# Stitch prompts — wireframes
+
+One prompt per screen. Every label below is the wording the built application actually
+uses, so the wireframes will match the code rather than an idealised version of it.
+
+**How to use these.** Stitch generates one screen per prompt. Paste **Block A** at the top
+of every prompt, then one numbered screen block underneath it. If Stitch offers a fidelity
+or style setting, set it to low fidelity or wireframe first — Block A forces it either
+way, but the setting gets you there in one pass instead of two.
+
+---
+
+## Block A — paste at the top of every prompt
+
+```
+Low-fidelity WIREFRAME, not a finished visual design.
+
+Style rules, follow exactly:
+- Greyscale only. White background, mid-grey 1.5px outlines, light grey fills for
+  placeholder blocks, dark grey text. No colour anywhere.
+- No photographs and no illustrations. Show an image area as an empty rectangle with a
+  thin diagonal cross through it.
+- No shadows, no gradients, no rounded pills, no decorative flourishes.
+- Icons only as simple single-weight line glyphs, and only where I ask for one.
+- Use the exact wording I give you. Never substitute lorem ipsum or invented copy.
+- Desktop frame 1280px wide. Content sits in a centred container with 40px side margins.
+- All spacing in multiples of 4px. Cards have a 1px outline, 12px corner radius, 24px
+  padding.
+
+Every screen has this header, drawn as two stacked full-width bars with a 1px bottom rule:
+- Bar one, 64px tall: on the left a small mark of two interlocking heart outlines followed
+  by the wordmark "HopeBridge"; in the centre the text links "Home  Programs  About
+  Impact" with the current page underlined; on the right "Login/Register" and a filled
+  rectangular button labelled "Donate Now".
+- Bar two, 48px tall with a light grey fill, ONLY on screens where I say the user is
+  signed in: a small uppercase section label on the left, then text links.
+
+Every screen has this footer: four columns — "HopeBridge" with the line "Connecting
+compassion with community needs.", then "Quick Links", "Take Part", "Connect" — above a
+thin rule and the line "© 2026 HopeBridge. Built for impact."
+```
+
+---
+
+## 1. Home — `index.php`
+
+```
+Screen: Home. Signed out, so no second bar.
+
+Below the header, top to bottom:
+
+1. A hero band about 460px tall. The image area fills the whole band as a rectangle with a
+   diagonal cross. Over the left half: a very large two-line headline "Together, We Can
+   Make a Difference."; below it a paragraph "We connect compassionate donors with critical
+   community needs. Every contribution builds a stronger, more resilient future for those
+   who need it most."; below that two buttons side by side — a filled one "Donate Now" with
+   a small heart glyph after the text, and an outlined one "Explore Programs".
+
+2. A single wide card overlapping the bottom edge of the hero by about 64px, split into
+   four equal columns by thin vertical hairlines. Each column is a large number above a
+   small caption, centred: "12,450 / People Helped", "1,900 / JOD Donated", "4 / Active
+   Programs", "2 / Donors".
+
+3. A row with the heading "Featured programs" on the left and a text link "See all
+   programs" on the right.
+
+4. Three equal program cards in a row. Each card, top to bottom: an image rectangle with a
+   diagonal cross, 192px tall, with a small outlined pill in its top-left corner reading
+   "RELIEF"; a card title; two lines of description text; a line reading "Raised 800 JOD"
+   on the left and "of 5,000 JOD" on the right; a thin horizontal progress bar about 20%
+   filled; then a divider and two buttons side by side, a filled "Donate Now" and an
+   outlined "Read More".
+```
+
+---
+
+## 2. Programs — `programs.php`
+
+```
+Screen: Active Programs. Signed out.
+
+1. A wide card containing, on the left, the heading "Active Programs" with the line
+   "Discover and support initiatives making a real impact." underneath; and on the right, on
+   one row, four controls of identical height: a text field with a magnifier glyph inside
+   its left edge and the placeholder "Search programs...", a dropdown "All Categories", a
+   dropdown "Sort By: Newest", and a filled button "Search".
+
+2. Below it, a three-column grid of four program cards, so the fourth card starts a second
+   row. Each card, top to bottom: an image rectangle with a diagonal cross, 192px tall,
+   with a small outlined pill top-left holding a tiny line glyph and a category word —
+   use "HEALTH", "FOOD", "EDUCATION" and "RELIEF" for the four cards; a title — use
+   "Medical Aid", "Emergency Food Parcels", "School Supplies", "Winter Blankets"; two lines
+   of description; a line with a small two-person glyph reading "People helped: 0"; a line
+   reading "Raised 200 JOD" left and "of 6,000 JOD" right; a thin progress bar; a divider;
+   two buttons, filled "Donate Now" and outlined "Read More".
+```
+
+---
+
+## 3. One program — `program.php`
+
+```
+Screen: a single program. Signed out.
+
+1. A small text link "← All programs" above everything.
+
+2. A wide card: on the left the title "Winter Blankets" with the line "Warm blankets and
+   heaters for families during the winter months." beneath it; on the far right a small
+   outlined pill reading "RELIEF".
+
+3. Two equal columns side by side:
+   - Left: a tall image rectangle with a diagonal cross, filling the column height.
+   - Right: a card containing, top to bottom, "Raised 800 JOD" on the left and "of 5,000
+     JOD" on the right; a thin progress bar; a line with a small two-person glyph reading
+     "People helped: 1"; the sub-heading "Who this program is for"; two lines of
+     eligibility text; and a filled button "Donate to this program".
+
+4. The heading "What your donation has done", then two equal cards side by side, each with
+   a bold report title, a small grey date line, and three lines of body text.
+```
+
+---
+
+## 4. Sign in and register — `login.php`, `register.php`
+
+```
+Draw these as TWO separate screens side by side on one frame, each 448px wide and centred
+in its own half. Signed out, so no second bar.
+
+Screen A — Sign in:
+A single card. Centred at the top, the interlocking-hearts mark, then the wordmark
+"HopeBridge", then the line "Sign in to continue to your dashboard". Then a field labelled
+"Email Address"; then a row with the label "Password" on the left and the text link "Forgot
+password?" on the right, above a password field with a small eye glyph inside its right
+edge; then a checkbox with the label "Remember me for 30 days"; then a full-width filled
+button "Login"; then a horizontal rule with the word "OR" centred in it; then two
+full-width outlined buttons, "Continue with Google" and "Continue with Facebook", each with
+a small square glyph on the left; then the centred line "New to HopeBridge? Register here".
+
+Screen B — Register:
+A single card. Centred at the top, "Join HopeBridge." and the line "What type of account
+are you creating?". Then two selectable cards side by side, each with a radio circle, a
+bold word and a line of description: "Donor / I want to give to a program." and
+"Beneficiary / I need help from a program." — show the Donor one as selected, with a
+heavier outline. Then fields "Full Name", "Email Address", and "Password" with an eye
+glyph. Then a full-width filled button "Create my account", the OR rule, the same two
+social buttons, and the centred line "Already have an account? Login".
+```
+
+---
+
+## 5. Giving — `donate.php`, `donor_receipt.php`
+
+```
+Draw these as TWO screens stacked on one frame. Signed in as a donor, so bar two reads
+"MY GIVING" then the links "My donations  Annual statement  Updates  Messages".
+
+Screen A — Donate:
+A text link "← Back to Winter Blankets". Then a wide card with the heading "Donate" and the
+line "You are giving to Winter Blankets." Then a narrower card containing a field labelled
+"Amount in JOD"; below it a row of four small outlined pill buttons "10 JOD", "25 JOD",
+"50 JOD", "100 JOD"; and below that a filled button "Donate".
+
+Screen B — Receipt:
+A text link "← My donations". Then a wide card with the heading "Donation receipt" and the
+line "Receipt #1". Then a card headed "HopeBridge" containing a two-column table with the
+left column as row labels: "RECEIPT NUMBER / #1", "DATE / 2026-06-12 10:15:00", "DONOR /
+Nadia Rashed", "EMAIL / donor@example.com", "PROGRAM / Winter Blankets", "AMOUNT / 250.00
+JOD" with the amount in bold. Under the table the small line "Thank you for supporting
+HopeBridge." Then a filled button "Print this receipt".
+```
+
+---
+
+## 6. Annual statement — `donor_tax_report.php`
+
+```
+Screen: a donor's annual statement. Signed in as a donor, bar two reads "MY GIVING" with
+"Annual statement" underlined.
+
+1. A wide card with the heading "Annual statement 2026" and the line "Everything you gave
+   in 2026, ready to print for your records." on the left, and on the right a dropdown
+   showing "2026" beside a filled button "Show".
+
+2. A single wide card split into four equal columns by thin vertical hairlines, each a
+   large number over a small caption: "700 / JOD Given", "4 / Donations", "175 / Average
+   Gift", "250 / Largest Gift".
+
+3. A single-line callout box: "The cause you supported most in 2026 was Winter Blankets,
+   with 400.00 JOD."
+
+4. A card headed "HopeBridge" with the small line "Annual statement for Nadia Rashed ·
+   2026", containing a four-column table with the header row "Date | Program | Receipt |
+   Amount" and four body rows, then a final bold row reading "Total" in the first column
+   and "700.00 JOD" in the last.
+
+5. A filled button "Print this statement".
+```
+
+---
+
+## 7. Beneficiary — `beneficiary_profile.php`, `beneficiary_services.php`
+
+```
+Draw these as TWO screens stacked on one frame. Signed in as a beneficiary, so bar two
+reads "MY SUPPORT" then the links "Help available  My requests  My profile  Messages".
+
+Screen A — My profile:
+A wide card with the heading "My profile" and the line "The admin reads these details to
+check which programs you can use." Then a full-width callout box reading "Your account is
+approved. You can see what help is available." Then the heading "Recent updates for you"
+above two narrow boxes each with a line of notification text and a small grey timestamp.
+Then the heading "My details" above a card with the fields "Phone number", "City", "How
+many people live in your home", "Monthly income in JOD", a tall text area "Tell us about
+your situation", and a filled button "Save my details".
+
+Screen B — Help available:
+A wide card with the heading "Help available" and the line "Read who each program is for,
+then apply for the ones that match your situation." Then a two-column grid of four cards.
+Each card: a program title, two lines of description, the small bold sub-heading "Who it is
+for" with a line of criteria beneath it, a text area labelled "Why you need this help
+(optional)", and a filled button "Apply".
+```
+
+---
+
+## 8. Administrator dashboard — `admin_dashboard.php`
+
+```
+Screen: the administrator's dashboard. Signed in as an administrator, so bar two reads
+"ADMINISTRATION" then the links "Dashboard  Beneficiaries  Applications  Manage programs
+Donations  Users  Messages", with Dashboard underlined.
+
+1. A wide card with the heading "Dashboard" and the line "An overview of the whole charity."
+
+2. A single wide card split into four equal columns by thin vertical hairlines: "1,900.00 /
+   JOD Raised", "7 / Donations", "2 / Donors", "2 / Waiting for You".
+
+3. Two stacked callout boxes: "1 beneficiary profile(s) are waiting to be checked. Review
+   them." and "1 application(s) for help are waiting for a decision. Review them."
+
+4. The heading "Money by month" above a table with the header row "Month | Donations |
+   Total" and three body rows.
+
+5. The heading "Who gives the most" above a table with the header row "Donor | Times |
+   Total | Average gift | Last gift" and two body rows, where the donor cell holds a name
+   above a smaller grey email address.
+
+6. The heading "How each program is doing" above a table with the header row "Program |
+   Donations | Raised | Goal | People helped" and four body rows.
+```
+
+---
+
+## 9. Administrator management — `admin_beneficiaries.php`, `admin_programs.php`
+
+```
+Draw these as TWO screens stacked on one frame. Signed in as an administrator, bar two as
+in screen 8.
+
+Screen A — Beneficiaries:
+A wide card with the heading "Beneficiaries" and the line "Check the details people have
+given and decide who is eligible." Then a vertical stack of two applicant cards. Each card:
+a name with a small outlined status pill beside it reading "PENDING"; a grey line holding an
+email, a phone number and a city separated by dots; a small two-column table with the labels
+"People in the home" and "Monthly income"; a paragraph of the person's own description; a
+field labelled "Note for this person (optional)"; and two buttons side by side, a filled
+"Approve" and an outlined "Reject".
+
+Screen B — Manage programs:
+A wide card with the heading "Manage programs" and the line "Add a program, switch one off,
+or write a report for the donors." Then the heading "All programs" above a table with the
+header row "Program | Category | Picture | Raised | Goal | Shown on the site" and a final
+empty column. Each body row holds, in the Picture cell, a small dropdown above a small
+outlined "Save" button; in the "Shown on the site" cell a small pill reading "YES"; and in
+the last cell a small outlined "Hide" button. Below the table the heading "Add a program"
+above a form card with the fields "Name of the program", "What it does" as a text area,
+"Category", "Picture" as a dropdown, "Who it is for" as a text area, "Goal in JOD", and a
+filled button "Add the program".
+```
+
+---
+
+## If Stitch drifts
+
+It will sometimes add colour or a photograph despite Block A. Two things fix it:
+
+- Re-send with `Redraw in greyscale only. Replace every photograph with an empty rectangle
+  crossed by a diagonal line.`
+- Ask for one screen at a time. The stacked pairs above (4, 5, 7, 9) are the ones most
+  likely to come back over-designed; splitting them into separate prompts usually settles it.
+
+Keep the wording exactly as written. The point of these wireframes is that an assessor can
+hold them beside the running site and see the same labels in the same places.
