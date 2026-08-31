@@ -669,10 +669,22 @@ input:focus, select:focus, textarea:focus {
     box-shadow: 0 0 0 4px rgba(0, 104, 95, 0.12);
 }
 
-/* A select ignores line-height - the browser sizes it from its own internal
-   metrics and reserves room for the arrow - so it is told the height outright.
-   46px is what the line-height above already gives an input and a button. */
-select { height: 46px; }
+/* A select is drawn by the browser itself unless you tell it not to be, and
+   that native widget quietly rounds its own corners tighter than the 8px we
+   asked for - so a select sat next to an input looked squarer than it.
+   appearance: none hands the painting back to this stylesheet, which means the
+   radius, the height and the arrow all match the input and the button beside
+   it. Turning the native widget off also removes the arrow, so we draw one. */
+select {
+    height: 46px;
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 40px;
+    background-image: url("images/chevron.svg");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px 16px;
+}
 
 /* a textarea is the exception: it holds paragraphs, so its lines need more
    air between them than a one-line field does */
