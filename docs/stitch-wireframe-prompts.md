@@ -147,7 +147,7 @@ in its own half. Signed out, so no second bar.
 Screen A — Sign in:
 A single card. Centred at the top, the interlocking-hearts mark, then the wordmark
 "HopeBridge", then the line "Sign in to continue to your dashboard". Then a field labelled
-"Email Address"; then a row with the label "Password" on the left and the text link "Forgot
+"Email Address" showing the placeholder "you@example.com"; then a row with the label "Password" on the left and the text link "Forgot
 password?" on the right, above a password field with a small eye glyph inside its right
 edge; then a checkbox with the label "Remember me for 30 days"; then a full-width filled
 button "Login"; then a horizontal rule with the word "OR" centred in it; then two
@@ -159,8 +159,8 @@ A single card. Centred at the top, "Join HopeBridge." and the line "What type of
 are you creating?". Then two selectable cards side by side, each with a radio circle, a
 bold word and a line of description: "Donor / I want to give to a program." and
 "Beneficiary / I need help from a program." — show the Donor one as selected, with a
-heavier outline. Then fields "Full Name", "Email Address", and "Password" with an eye
-glyph. Then a full-width filled button "Create my account", the OR rule, the same two
+heavier outline. Then fields "Full Name", then "Email Address" showing the placeholder
+"you@example.com", then "Password" with an eye glyph inside its right edge. Then a full-width filled button "Create my account", the OR rule, the same two
 social buttons, and the centred line "Already have an account? Login".
 ```
 
