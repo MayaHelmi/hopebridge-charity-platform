@@ -195,23 +195,31 @@ HopeBridge." Then a filled button "Print this receipt".
 Screen: a donor's annual statement. Signed in as a donor, bar two reads "MY GIVING" with
 "Annual statement" underlined.
 
-1. A wide card with the heading "Annual statement 2026" and the line "Everything you gave
-   in 2026, ready to print for your records." on the left, and on the right a dropdown
-   showing "2026" beside a filled button "Show".
+1. A wide card holding only the heading "Annual statement 2026" and the line "Everything
+   you gave in 2026, ready to print for your records." underneath. Nothing on the right —
+   there is no year picker, because this donor has only given in one year.
 
 2. A single wide card split into four equal columns by thin vertical hairlines, each a
-   large number over a small caption: "700 / JOD Given", "4 / Donations", "175 / Average
-   Gift", "250 / Largest Gift".
+   large number over a small caption, centred: "700 / JOD Given", "4 / Donations", "175 /
+   Average Gift", "250 / Largest Gift".
 
-3. A single-line callout box: "The cause you supported most in 2026 was Winter Blankets,
-   with 400.00 JOD."
+3. A full-width tinted callout box on one line: "The cause you supported most in 2026 was
+   Winter Blankets, with 400.00 JOD." — with the program name in bold.
 
-4. A card headed "HopeBridge" with the small line "Annual statement for Nadia Rashed ·
-   2026", containing a four-column table with the header row "Date | Program | Receipt |
-   Amount" and four body rows, then a final bold row reading "Total" in the first column
-   and "700.00 JOD" in the last.
+4. A card headed "HopeBridge" with the small grey line "Annual statement for Nadia Rashed ·
+   2026" beneath it, containing a four-column table. Header row: "Date | Program | Receipt
+   | Amount". Body rows, exactly these:
+   - 2026-06-12 10:15:00 | Winter Blankets | #1 | 250.00 JOD
+   - 2026-07-03 18:40:00 | Emergency Food Parcels | #2 | 100.00 JOD
+   - 2026-07-21 09:05:00 | Winter Blankets | #3 | 150.00 JOD
+   - 2026-08-18 16:35:00 | Medical Aid | #6 | 200.00 JOD
+   Then a final row in bold, styled like a header: "Total" in the first column, the middle
+   two columns empty, and "700.00 JOD" in the last.
 
-5. A filled button "Print this statement".
+5. A filled button "Print this statement" below the card.
+
+Note: once a donor has given in a second year, a dropdown of years and a "Show" button
+appear on the right of the card in step 1. Do not draw them here.
 ```
 
 ---
