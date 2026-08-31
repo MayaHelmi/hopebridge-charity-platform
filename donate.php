@@ -62,11 +62,6 @@ include 'header.php';
 
 <div class="form-box">
 
-    <p class="notice info">
-        This is a training project, so no real money is taken.
-        Pressing donate only saves the donation in the database.
-    </p>
-
     <?php if ($error !== '') { ?>
         <p class="notice error"><?php echo htmlspecialchars($error); ?></p>
     <?php } ?>

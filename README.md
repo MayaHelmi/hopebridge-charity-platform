@@ -65,6 +65,13 @@ Then open <http://localhost:8000>.
 
 If your MySQL root user has a password, put it in `config.php`.
 
+### Following a password reset
+
+There is no mail server, so a reset link is not emailed. It is appended to
+`hopebridge-outbox.txt` in the folder **above** this one — open that file and follow the
+newest link. The site itself deliberately says nothing about this, because a visitor
+should only ever see "a reset link has been sent".
+
 ### Accounts to log in with
 
 | Role | Email | Password |
@@ -261,8 +268,11 @@ Checked by hand against the running site:
 
 ### Not real
 
-- **Payment is simulated.** Donating writes a row in `donations`. No money moves and
-  no payment provider is involved. This is said on the donate page itself.
+- **Payment is simulated.** Donating writes a row in `donations`. No money moves and no
+  payment provider is involved. The interface does not claim otherwise — there is no card
+  form and no "payment successful" wording anywhere — but it no longer carries a notice
+  saying so either, because the site is meant to present as a finished product. **Before
+  this is ever put in front of real donors, a payment provider has to be wired in.**
 - **There is no mail server, so reset links are not emailed.** They are appended to
   `hopebridge-outbox.txt` in the folder *above* the website, which the web server cannot
   serve. In production that one `file_put_contents` call becomes a send-mail call and

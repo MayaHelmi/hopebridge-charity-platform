@@ -73,12 +73,6 @@ include 'header.php';
                 The link stops working after one hour.
             </p>
 
-            <p class="notice info">
-                This training project has no mail server, so the link is written to
-                <strong>hopebridge-outbox.txt</strong> in the folder above the website
-                instead of being emailed. Open that file to follow the link.
-            </p>
-
         <?php } else { ?>
 
             <form method="post">

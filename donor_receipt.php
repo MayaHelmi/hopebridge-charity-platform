@@ -52,7 +52,7 @@ include 'header.php';
     </table>
 
     <p class="meta gap-t">
-        Training project - this receipt is not a real tax document.
+        Thank you for supporting HopeBridge.
     </p>
 </div>
 

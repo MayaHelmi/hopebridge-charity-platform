@@ -34,7 +34,7 @@
     </div>
 
     <div class="rule">
-        <p>HopeBridge &mdash; a PHP &amp; SQL training project. No real money is taken.</p>
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
     </div>
 
 </div>

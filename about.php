@@ -29,10 +29,6 @@ include 'header.php';
             application and every decision is written down, so nothing depends on
             somebody remembering it.
         </p>
-        <p class="notice info">
-            This site is a PHP &amp; SQL training project. The programs and accounts
-            in it are examples, and no real money is taken at any point.
-        </p>
     </div>
 
     <div class="figure">
