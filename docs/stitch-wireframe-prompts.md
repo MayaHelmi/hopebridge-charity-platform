@@ -300,25 +300,41 @@ Donations  Users  Messages", with Dashboard underlined.
 Draw these as TWO screens stacked on one frame. Signed in as an administrator, bar two as
 in screen 8.
 
-Screen A — Beneficiaries:
+Screen A — Beneficiaries, with "Beneficiaries" underlined in bar two:
 A wide card with the heading "Beneficiaries" and the line "Check the details people have
-given and decide who is eligible." Then a vertical stack of two applicant cards. Each card:
-a name with a small outlined status pill beside it reading "PENDING"; a grey line holding an
-email, a phone number and a city separated by dots; a small two-column table with the labels
-"People in the home" and "Monthly income"; a paragraph of the person's own description; a
-field labelled "Note for this person (optional)"; and two buttons side by side, a filled
-"Approve" and an outlined "Reject".
+given and decide who is eligible." Then a vertical stack of two applicant cards — the one
+still waiting comes first, because pending sorts above decided.
 
-Screen B — Manage programs:
+Each card: a name with a small outlined status pill beside it; a grey line holding an
+email, a phone number and a city separated by middle dots; a small two-column table with
+the row labels "People in the home" and "Monthly income"; a paragraph in the person's own
+words; a field labelled "Note for this person (optional)"; and two buttons side by side,
+a filled "Approve" and an outlined "Reject".
+
+Use these two, in this order:
+- "Rania Odeh" · PENDING · waiting@example.com · 0791111111 · Irbid · 4 people · 210.00 JOD
+  · "My husband is ill and I am the only one working."
+- "Khaled Mansour" · APPROVED · family@example.com · 0790000000 · Zarqa · 6 people ·
+  180.00 JOD · "I lost my job last year and I have four children at school."
+
+Screen B — Manage programs, with "Manage programs" underlined in bar two:
 A wide card with the heading "Manage programs" and the line "Add a program, switch one off,
-or write a report for the donors." Then the heading "All programs" above a table with the
-header row "Program | Category | Picture | Raised | Goal | Shown on the site" and a final
-empty column. Each body row holds, in the Picture cell, a small dropdown above a small
-outlined "Save" button; in the "Shown on the site" cell a small pill reading "YES"; and in
-the last cell a small outlined "Hide" button. Below the table the heading "Add a program"
-above a form card with the fields "Name of the program", "What it does" as a text area,
-"Category", "Picture" as a dropdown, "Who it is for" as a text area, "Goal in JOD", and a
-filled button "Add the program".
+or write a report for the donors."
+
+Then the heading "All programs" above a table. Header row "Program | Category | Picture |
+Raised | Goal | Shown on the site" plus a final unlabelled column. Four body rows —
+"Winter Blankets / Relief", "School Supplies / Education", "Emergency Food Parcels / Food",
+"Medical Aid / Health". In every row: the Picture cell holds a small dropdown with a small
+outlined "Save" button beneath it; the "Shown on the site" cell holds a small pill reading
+"YES"; and the last cell holds a small outlined "Hide" button.
+
+Then the heading "Add a program" above a form card, about 480px wide, with the fields
+"Name of the program", "What it does" as a text area, "Category", "Picture" as a dropdown,
+"Who it is for" as a text area, "Goal in JOD", and a filled button "Add the program".
+
+Then the heading "Write a report for the donors" above a second form card the same width,
+with "Which program" as a dropdown, "Title" as a field, "What happened" as a tall text
+area, and a filled button "Publish the report".
 ```
 
 ---
