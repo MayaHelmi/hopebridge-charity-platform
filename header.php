@@ -21,9 +21,10 @@ if (isset($_SESSION['role'])) {
     if ($_SESSION['role'] === 'donor') {
         $section = 'My giving';
         $section_links = [
-            'donor_donations.php' => 'My donations',
-            'donor_updates.php'   => 'Updates',
-            'messages.php'        => 'Messages',
+            'donor_donations.php'   => 'My donations',
+            'donor_tax_report.php'  => 'Annual statement',
+            'donor_updates.php'     => 'Updates',
+            'messages.php'          => 'Messages',
         ];
 
     } elseif ($_SESSION['role'] === 'beneficiary') {
