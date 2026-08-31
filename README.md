@@ -286,6 +286,10 @@ Checked by hand against the running site:
 
 ## Pictures
 
+- `images/logo.png` is the HopeBridge mark, two interlocking hearts in the brand teal and
+  clay. It was supplied with a transparent background, so it sits directly on the bar with
+  nothing behind it, and it is used three ways: beside the wordmark in the top bar, above
+  the sign-in card, and as the browser tab icon. It was resized and nothing else.
 - `images/` holds the pictures the site itself uses. `planting.jpg` is the illustration
   on the About page. `hero.jpg` is the original download and is left untouched;
   `hero-crop.jpg` is the same picture with the AI rendering artefact trimmed off the top,

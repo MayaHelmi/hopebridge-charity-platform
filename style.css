@@ -132,6 +132,9 @@ label.check:focus-within {
 }
 
 .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 20px;
     font-weight: 700;
     line-height: 1.4;
@@ -139,6 +142,11 @@ label.check:focus-within {
     text-decoration: none;
     color: var(--primary);
 }
+
+/* The mark is supplied with a transparent background, so it sits straight on
+   the bar with nothing behind it. Height only - the width follows, so the
+   two hearts are never squashed. */
+.logo img { height: 32px; width: auto; display: block; }
 
 /* the four site links, centred between the logo and the account corner */
 .topbar .site {
@@ -740,7 +748,7 @@ button.red   { background: var(--error); border-color: var(--error); }
 
 .auth .brand { text-align: center; margin-bottom: 24px; }
 
-.auth .brand svg { color: var(--primary); }
+.auth .brand .mark { height: 56px; width: auto; margin: 0 auto; display: block; }
 
 .auth .brand .name {
     display: block;

@@ -66,6 +66,7 @@ $site_links = [
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -75,7 +76,10 @@ $site_links = [
 <header class="topbar">
 <div class="bar-inner">
 
-    <a class="logo" href="index.php">HopeBridge</a>
+    <a class="logo" href="index.php">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
 
     <!-- a checkbox is used so the small-screen menu works without JavaScript -->
     <input type="checkbox" id="menu-toggle">
