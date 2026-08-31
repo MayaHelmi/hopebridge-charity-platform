@@ -230,21 +230,29 @@ appear on the right of the card in step 1. Do not draw them here.
 Draw these as TWO screens stacked on one frame. Signed in as a beneficiary, so bar two
 reads "MY SUPPORT" then the links "Help available  My requests  My profile  Messages".
 
-Screen A — My profile:
+Screen A — My profile, with "My profile" underlined in bar two:
 A wide card with the heading "My profile" and the line "The admin reads these details to
-check which programs you can use." Then a full-width callout box reading "Your account is
-approved. You can see what help is available." Then the heading "Recent updates for you"
-above two narrow boxes each with a line of notification text and a small grey timestamp.
-Then the heading "My details" above a card with the fields "Phone number", "City", "How
-many people live in your home", "Monthly income in JOD", a tall text area "Tell us about
-your situation", and a filled button "Save my details".
+check which programs you can use." Then a full-width tinted callout box reading "Your
+account is approved. You can see what help is available." Then the heading "Recent updates
+for you" above two narrow boxes, each with a thicker left edge, holding a line of text and
+a small grey timestamp beneath it:
+- "Your application for Winter Blankets was accepted."  ·  2026-06-06 10:30:00
+- "Your account has been approved. You can now apply for help."  ·  2026-06-01 09:00:00
+Then the heading "My details" above a card, about 480px wide, with the fields "Phone
+number", "City", "How many people live in your home", "Monthly income in JOD", then a tall
+text area labelled "Tell us about your situation", then a filled button "Save my details".
 
-Screen B — Help available:
+Screen B — Help available, with "Help available" underlined in bar two:
 A wide card with the heading "Help available" and the line "Read who each program is for,
-then apply for the ones that match your situation." Then a two-column grid of four cards.
-Each card: a program title, two lines of description, the small bold sub-heading "Who it is
-for" with a line of criteria beneath it, a text area labelled "Why you need this help
-(optional)", and a filled button "Apply".
+then apply for the ones that match your situation." Then a TWO-column grid of four cards,
+in this order: "Winter Blankets", "School Supplies", "Emergency Food Parcels", "Medical
+Aid". Each card: the program title, two lines of description, then the small bold
+sub-heading "Who it is for" with one line of criteria in grey beneath it, then a text area
+labelled "Why you need this help (optional)", then a filled button "Apply".
+
+Note: the Apply control only exists because this beneficiary has been approved. One who is
+still waiting sees a tinted notice reading "You can apply once the admin has approved your
+account." and no form at all. Draw the approved version.
 ```
 
 ---
