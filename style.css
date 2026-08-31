@@ -1184,6 +1184,38 @@ th {
 .choices.people { margin-bottom: 24px; }
 
 
+/* ---------- loading ---------- */
+
+/* A page here arrives complete: PHP renders it and the browser then fetches
+   nothing, so there is no content to put a skeleton in front of. The one thing
+   that does arrive late is a photograph - they are 140 to 190KB each - so the
+   space a photograph is about to fill carries a quiet shimmer until it paints.
+
+   No JavaScript is involved. The placeholder is the background of the box the
+   image sits in, so the image simply covers it on arrival and there is nothing
+   to switch off.
+
+   Only boxes that really do contain an image get this. A programme with no
+   photograph shows its category on the teal panel instead, and that panel must
+   not shimmer, because nothing is coming. */
+@keyframes shimmer {
+    from { background-position: 150% 0; }
+    to   { background-position: -50% 0; }
+}
+
+.photo:has(img),
+.figure:has(> img) {
+    background-color: var(--tint);
+    background-image: linear-gradient(90deg,
+        rgba(255, 255, 255, 0)    20%,
+        rgba(255, 255, 255, 0.55) 50%,
+        rgba(255, 255, 255, 0)    80%);
+    background-size: 200% 100%;
+    background-repeat: no-repeat;
+    animation: shimmer 1.4s linear infinite;
+}
+
+
 /* ---------- movement ---------- */
 
 /* The page announces itself once and then stops. The title band arrives, the
@@ -1218,6 +1250,8 @@ th {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-delay: 0ms !important;
+        /* without this the shimmer would still loop, just very fast */
+        animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
     }

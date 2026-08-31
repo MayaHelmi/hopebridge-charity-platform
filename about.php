@@ -32,7 +32,8 @@ include 'header.php';
     </div>
 
     <div class="figure">
-        <img src="images/planting.jpg" alt="Volunteers planting young trees together">
+        <img src="images/planting.jpg" alt="Volunteers planting young trees together"
+             loading="lazy" decoding="async">
     </div>
 
 </div>

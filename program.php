@@ -59,7 +59,8 @@ include 'header.php';
     <div class="figure">
         <?php if ($program['image'] !== null && $program['image'] !== '') { ?>
             <img src="images/programs/<?php echo htmlspecialchars($program['image']); ?>"
-                 alt="<?php echo htmlspecialchars($program['title']); ?>">
+                 alt="<?php echo htmlspecialchars($program['title']); ?>"
+                 loading="lazy" decoding="async">
         <?php } else { ?>
             <div class="photo">
                 <span class="stand-in"><?php echo htmlspecialchars($program['category']); ?></span>

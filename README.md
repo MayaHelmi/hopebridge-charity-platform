@@ -180,6 +180,23 @@ back link naming where you came from, rather than relying on the browser button.
 On a phone the site bar collapses into the menu button, while the section bar stays
 visible and slides sideways, so the page you are on is never hidden behind a menu.
 
+## Loading
+
+A page here arrives complete: PHP renders it and the browser then asks for nothing more,
+so there is no stage where the layout exists but the content does not. There is nothing
+to put a content skeleton in front of, and adding one would only be theatre.
+
+What *does* arrive late is a photograph — they are 140 to 190KB each. So the space a
+photograph is about to fill carries a quiet shimmer until it paints. No JavaScript is
+involved: the placeholder is simply the background of the box the image sits in, and the
+image covers it on arrival.
+
+Only boxes that really do contain an image get it. A program with no photograph shows its
+category on a teal panel, and that panel does not shimmer, because nothing is coming.
+
+Photographs below the first screen are marked `loading="lazy"`; the hero is not, because
+it is the first thing anyone sees.
+
 ## Movement
 
 One curve for the whole site, `cubic-bezier(0.2, 0, 0, 1)` — quick to leave, slow to

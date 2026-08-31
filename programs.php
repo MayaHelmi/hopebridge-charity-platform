@@ -106,7 +106,8 @@ include 'header.php';
                 <div class="photo">
                     <?php if ($program['image'] !== null && $program['image'] !== '') { ?>
                         <img src="images/programs/<?php echo htmlspecialchars($program['image']); ?>"
-                             alt="<?php echo htmlspecialchars($program['title']); ?>">
+                             alt="<?php echo htmlspecialchars($program['title']); ?>"
+                             loading="lazy" decoding="async">
                     <?php } else { ?>
                         <span class="stand-in"><?php echo htmlspecialchars($program['category']); ?></span>
                     <?php } ?>
