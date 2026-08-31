@@ -41,7 +41,7 @@ include 'header.php';
 
 <div class="grid">
 
-    <div class="card">
+    <div class="card with-action">
         <h3>Donors</h3>
         <p>
             Browse the programs, give to the cause you care about, and keep every
@@ -52,7 +52,7 @@ include 'header.php';
         <p><a href="register.php">Register as a donor</a></p>
     </div>
 
-    <div class="card">
+    <div class="card with-action">
         <h3>Beneficiaries</h3>
         <p>
             Register, fill in your details once, and an administrator checks
@@ -63,7 +63,7 @@ include 'header.php';
         <p><a href="register.php">Apply for help</a></p>
     </div>
 
-    <div class="card">
+    <div class="card with-action">
         <h3>Administrators</h3>
         <p>
             Approve or refuse beneficiary profiles and applications, add and

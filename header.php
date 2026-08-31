@@ -73,6 +73,8 @@ $site_links = [
 
 <a class="skip" href="#content">Skip to the content</a>
 
+<div class="bars">
+
 <header class="topbar">
 <div class="bar-inner">
 
@@ -135,5 +137,7 @@ $site_links = [
 </div>
 </div>
 <?php } ?>
+
+</div><!-- .bars -->
 
 <main id="content" class="page<?php echo isset($full_width) ? ' full' : ''; ?>">

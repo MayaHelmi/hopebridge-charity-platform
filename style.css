@@ -50,6 +50,9 @@
     --dur-2: 220ms;   /* cards and panels - the things that hold content */
 }
 
+/* the skip link and any other in-page jump must clear the pinned bars */
+html { scroll-padding-top: 128px; }
+
 * {
     box-sizing: border-box;
 
@@ -105,6 +108,16 @@ label.check:focus-within {
 
 
 /* ---------- top bar ---------- */
+
+/* The two bars travel together as one block, so the section bar always sits
+   directly under the top bar without anyone having to hard-code the top bar's
+   height - which matters, because it is 65px until the site links wrap and
+   then it is 105px. */
+.bars {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
 
 .topbar {
     display: flex;
@@ -504,6 +517,21 @@ h3 {
     font-weight: 600;
     line-height: 1.4;
     margin: 0 0 8px;
+}
+
+/* A card that ends with an action. The paragraphs above it are rarely the same
+   length, so without this the links sit at three different heights across a row.
+   The grid already makes the cards equal height; margin-top: auto pushes the
+   last line of each one down to meet the others. */
+.card.with-action {
+    display: flex;
+    flex-direction: column;
+}
+
+.card.with-action > :last-child {
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-top: 16px;
 }
 
 /* a photo used as an illustration beside a card */
@@ -1250,6 +1278,20 @@ th {
         background: url("images/icons/menu.svg") no-repeat 12px center;
         background-size: 18px 18px;
     }
+
+    /* Pinned, the two bars would take 170px of a phone screen - about a fifth
+       of it - so only the compact top bar stays and the section bar scrolls
+       away with the page.
+
+       display: contents makes the wrapper generate no box at all, which is the
+       point: a sticky element can only stay put inside its own parent, and a
+       170px tall wrapper would carry the top bar off the screen with it. With
+       no box in the way the bar sticks against the page itself.
+
+       The menu can also open taller than the screen, so it is allowed to
+       scroll inside the bar rather than trapping anybody. */
+    .bars   { display: contents; }
+    .topbar { position: sticky; top: 0; z-index: 20; max-height: 100vh; overflow-y: auto; }
 
     /* the site links and the account corner open together as one menu */
     .topbar .site,
