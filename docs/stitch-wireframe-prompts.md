@@ -480,7 +480,9 @@ Then the heading "How each program is doing" above a table. Header row "Program 
 - Emergency Food Parcels | Food | 400.00 JOD | 8,000.00 JOD | 0
 - Medical Aid | Health | 200.00 JOD | 6,000.00 JOD | 0
 Then the heading "Reports from the field" above a two-column grid of two cards, each with a
-bold report title, a grey program-and-date line, and three lines of body text.
+bold report title, a grey program-and-date line, and three lines of body text:
+- "Food parcels reach 85 families" · Emergency Food Parcels · 2026-08-31 08:24:46
+- "First 120 blankets delivered" · Winter Blankets · 2026-08-31 08:24:46
 ```
 
 ---
