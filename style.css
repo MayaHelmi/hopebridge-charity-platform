@@ -1,0 +1,1295 @@
+/* ============================================================
+   HopeBridge - stylesheet
+
+   Everything is spaced on a 4 point grid: every margin, padding
+   and gap below is a multiple of 4px.
+
+   Layout:  content sits in a 1280px container.
+            40px side margin on desktop, 16px on phones.
+            Card grids are 3 columns, then 2, then 1.
+   ============================================================ */
+
+:root {
+    /* colours */
+    --primary:        #00685f;   /* deep teal, the main brand colour */
+    --primary-strong: #008378;
+    --accent:         #b05e3d;   /* clay, only for Donate Now */
+    --accent-strong:  #924628;
+    --secondary:      #0058be;
+
+    --bg:             #f8f9ff;   /* page background */
+    --card:           #ffffff;   /* anything sitting on the page */
+    --tint:           #eff4ff;   /* table headers, quiet rows */
+
+    --ink:            #121c2a;   /* headings and body text */
+    --muted:          #3d4947;   /* secondary text */
+    --line:           #bcc9c6;   /* borders */
+
+    --error:          #ba1a1a;
+    --error-bg:       #ffdad6;
+    --error-ink:      #93000a;
+    --ok-bg:          #d7f2ec;
+    --warn-bg:        #ffdbce;
+    --warn-ink:       #773215;
+
+    /* rounding */
+    --r-sm:   4px;
+    --r:      8px;    /* buttons, inputs */
+    --r-md:  12px;    /* cards */
+    --r-full: 999px;  /* badges */
+
+    /* depth */
+    --lift-1: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --lift-2: 0 8px 24px rgba(0, 0, 0, 0.10);
+
+    /* Movement.
+       One curve for the whole site: quick to leave, slow to settle, and no
+       bounce. A charity's records should feel steady, not springy.
+       Two speeds only - controls answer fast, surfaces take slightly longer. */
+    --ease:  cubic-bezier(0.2, 0, 0, 1);
+    --dur-1: 120ms;   /* buttons, links, inputs - the things you touch */
+    --dur-2: 220ms;   /* cards and panels - the things that hold content */
+}
+
+* { box-sizing: border-box; }
+
+/* On a touch screen the browser draws its own grey box over whatever you tap.
+   This replaces it with a faint wash of the brand teal, so a press is
+   acknowledged quietly instead of flashing a default rectangle. */
+* { -webkit-tap-highlight-color: rgba(0, 104, 95, 0.10); }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--primary); transition: color var(--dur-1) var(--ease); }
+
+img { max-width: 100%; }
+
+/* a visible focus ring on everything reachable by keyboard */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+label.check:focus-within {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+    border-radius: var(--r-sm);
+}
+
+/* jumps a keyboard user past the two navigation bars */
+.skip {
+    position: absolute;
+    left: 16px;
+    top: -64px;
+    z-index: 30;
+    background: var(--primary);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: var(--r);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: top var(--dur-2) var(--ease);
+}
+
+.skip:focus { top: 16px; }
+
+
+/* ---------- top bar ---------- */
+
+.topbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 40px;
+    background: var(--card);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--lift-1);
+    position: relative;
+    z-index: 20;
+}
+
+/* the bar itself is full width, its contents line up with the page */
+.topbar .bar-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+/* the four site links, centred between the logo and the account corner */
+.topbar .site {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin: 0 auto;
+}
+
+.topbar .site a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 16px;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: color var(--dur-1) var(--ease),
+                border-color var(--dur-1) var(--ease);
+}
+
+
+/* the page you are on */
+.topbar .site a.on {
+    color: var(--primary);
+    font-weight: 700;
+    border-bottom-color: var(--primary);
+}
+
+/* who is signed in, and the way out */
+.account {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+
+.account a {
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color var(--dur-1) var(--ease);
+}
+
+
+/* The name of whoever is logged in, so nobody has to guess.
+   Deliberately NOT called .who - messages.php already uses that for the
+   sender line on a message bubble, and two meanings on one class name is
+   how a stylesheet starts lying to you. */
+.signed-in { font-size: 14px; color: var(--muted); }
+
+.signed-in b {
+    display: inline-block;
+    margin-left: 4px;
+    padding: 2px 8px;
+    border-radius: var(--r-full);
+    background: var(--tint);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* the clay Donate button in the bar */
+.account a.give {
+    background: var(--accent);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: var(--r);
+    transition: background-color var(--dur-1) var(--ease);
+}
+
+
+
+/* ---------- section bar (only when logged in) ---------- */
+
+.subbar {
+    background: var(--tint);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    z-index: 19;
+}
+
+.subbar .bar-inner {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* which part of the site these links belong to */
+.subbar .section {
+    flex: none;
+    padding: 12px 0;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.subbar nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    overflow-x: auto;          /* on a phone the row slides sideways */
+    overscroll-behavior-x: contain;  /* ...without arming the browser's back swipe */
+    scrollbar-width: none;
+}
+
+.subbar nav::-webkit-scrollbar { display: none; }
+
+.subbar nav a {
+    flex: none;
+    padding: 12px 0;
+    text-decoration: none;
+    white-space: nowrap;
+    color: var(--muted);
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+    transition: color var(--dur-1) var(--ease),
+                border-color var(--dur-1) var(--ease);
+}
+
+
+.subbar nav a.on {
+    color: var(--primary);
+    font-weight: 600;
+    border-bottom-color: var(--primary);
+}
+
+/* the small-screen menu button is hidden on desktop */
+#menu-toggle,
+.menu-button { display: none; }
+
+
+/* ---------- page layout ---------- */
+
+.page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 40px 40px 64px;
+}
+
+/* the home page runs edge to edge, so it opts out of the padding */
+.page.full { max-width: none; padding: 0 0 64px; }
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 40px 0 16px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+.subtitle { margin: 0; color: var(--muted); font-size: 18px; }
+
+/* The way back from a page you drilled into. The arrow slides a little
+   further out on hover, which is the whole animation - it points the way. */
+.back { margin: 0 0 16px; }
+
+.back a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    /* padding plus matching negative margin: a comfortable tap target on a
+       phone without pushing the title band down on a desktop */
+    padding: 12px 8px;
+    margin: -12px -8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color var(--dur-1) var(--ease), gap var(--dur-1) var(--ease);
+}
+
+
+/* the white band that holds the title of an inside page */
+.page-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    padding: 24px;
+    margin-bottom: 32px;
+}
+
+
+/* ---------- home page hero ---------- */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 96px 0 128px;
+}
+
+.hero img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    opacity: 0.4;
+}
+
+/* fades the photo out towards the left so the words stay readable */
+.hero .veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right,
+                rgba(248, 249, 255, 0.94),
+                rgba(248, 249, 255, 0.72) 50%,
+                rgba(248, 249, 255, 0.40));
+}
+
+.hero .words {
+    position: relative;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.hero .words > div { max-width: 640px; }
+
+.hero h1 {
+    /* the only fluid size on the site: it removes the 40px step that sat off
+       the type scale, and the ends are both real scale values */
+    font-size: clamp(32px, 0.6rem + 3.5vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--muted);
+    margin: 0 0 32px;
+    max-width: 576px;
+}
+
+.hero .actions { display: flex; flex-wrap: wrap; gap: 16px; }
+
+
+/* the four numbers, lifted over the bottom of the hero */
+.impact-bar {
+    position: relative;
+    z-index: 10;
+    max-width: 1280px;
+    margin: -64px auto 0;
+    padding: 0 40px;
+}
+
+.impact-bar .inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    padding: 24px;
+    text-align: center;
+}
+
+.impact-bar .inner > div + div { border-left: 1px solid var(--line); }
+
+.impact-bar .number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.impact-bar .label { font-size: 14px; color: var(--muted); }
+
+/* a strip of content on the home page */
+.band {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 64px 40px 0;
+}
+
+.band .band-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.band h2 { margin: 0; }
+
+
+/* ---------- cards and grids ---------- */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.grid.two { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    padding: 24px;
+    transition: box-shadow var(--dur-2) var(--ease),
+                border-color var(--dur-2) var(--ease);
+}
+
+.card h3 { margin: 0 0 8px; }
+
+/* a photo used as an illustration beside a card */
+.figure {
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    overflow: hidden;
+    min-height: 240px;
+}
+
+.figure img {
+    width: 100%;
+    height: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* a program, with its photo, on the home and programs pages */
+.program {
+    display: flex;
+    flex-direction: column;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    overflow: hidden;
+}
+
+.program {
+    transition: box-shadow var(--dur-2) var(--ease),
+                border-color var(--dur-2) var(--ease);
+}
+
+/* No lift and no zoom on hover: the card as a whole is not clickable, only the
+   two buttons inside it are, so it must not pretend otherwise. It just deepens. */
+
+/* the picture strip at the top of a program card, also used on its own page */
+.photo {
+    position: relative;
+    height: 192px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+}
+
+/* inside a .figure the picture fills the whole frame instead */
+.figure .photo { height: 100%; min-height: 240px; }
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* programs with no photo yet show their category on the teal panel instead */
+.photo .stand-in {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    opacity: 0.9;
+}
+
+.program .kind {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--card);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--r-full);
+    box-shadow: var(--lift-1);
+}
+
+.program .body { padding: 24px; flex-grow: 1; }
+
+.program .body p { margin: 0 0 16px; color: var(--muted); }
+
+.program .served {
+    display: block;
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 16px;
+}
+
+.program .foot {
+    display: flex;
+    gap: 12px;
+    padding: 16px 24px 24px;
+    border-top: 1px solid var(--line);
+}
+
+.program .foot .button { margin-top: 0; flex: 1; text-align: center; }
+
+
+/* how much of a program's goal has been raised */
+.money {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.money .goal { color: var(--muted); font-weight: 400; }
+
+.bar {
+    height: 8px;
+    background: var(--tint);
+    border: 1px solid var(--line);
+    border-radius: var(--r-full);
+    overflow: hidden;
+}
+
+.bar div { height: 100%; background: var(--primary); border-radius: var(--r-full); }
+
+.raised { font-size: 14px; color: var(--muted); }
+.raised b { color: var(--primary); }
+
+
+/* the number boxes on the admin dashboard */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-bottom: 8px;
+}
+
+.stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--primary);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    padding: 24px;
+    text-align: center;
+}
+
+.stat .number {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--primary);
+}
+
+.stat .label { font-size: 14px; color: var(--muted); }
+
+
+/* ---------- forms ---------- */
+
+.form-box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    padding: 24px;
+    max-width: 480px;
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    font-family: inherit;
+    font-size: 16px;
+    background: var(--card);
+    color: var(--ink);
+}
+
+input, select, textarea {
+    transition: border-color var(--dur-1) var(--ease),
+                box-shadow var(--dur-1) var(--ease);
+}
+
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 104, 95, 0.12);
+}
+
+textarea { min-height: 96px; }
+
+button, .button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: #fff;
+    border: 1px solid var(--primary);
+    border-radius: var(--r);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 20px;   /* form controls ignore the body line-height, and
+                            without this a button lands at 43px - just under
+                            the 44px a fingertip wants */
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--dur-1) var(--ease),
+                border-color var(--dur-1) var(--ease),
+                color var(--dur-1) var(--ease);
+}
+
+
+/* pressed state - the one place the interface moves under your finger */
+button:active, .button:active { transform: translateY(1px); }
+
+/* clay, kept for donating only */
+button.give, .button.give { background: var(--accent); border-color: var(--accent); }
+
+/* outlined */
+button.quiet, .button.quiet { background: none; color: var(--primary); border-color: var(--line); }
+
+button.small {
+    margin-top: 0;
+    padding: 12px;
+    margin-block: -4px;   /* target grows, the row does not */
+}
+button.grey  { background: none; color: var(--muted); border-color: var(--line); }
+button.red   { background: var(--error); border-color: var(--error); }
+
+
+/* the sign in / register card in the middle of the screen */
+.auth {
+    max-width: 448px;
+    margin: 0 auto;
+}
+
+.auth .form-box { max-width: none; padding: 32px; }
+
+.auth .brand { text-align: center; margin-bottom: 24px; }
+
+.auth .brand svg { color: var(--primary); }
+
+.auth .brand .name {
+    display: block;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--primary);
+    margin: 8px 0 4px;
+}
+
+.auth .brand p { margin: 0; color: var(--muted); }
+
+/* the eye button sitting inside the right edge of a password box */
+.reveal-wrap { position: relative; }
+
+.reveal-wrap input { padding-right: 48px; }
+
+button.reveal {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: var(--r-sm);
+    background-color: transparent;
+    background-image: url("images/eye.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px 20px;
+}
+
+/* the eye is crossed out while the password is showing */
+button.reveal.on { background-image: url("images/eye-off.svg"); }
+
+
+button.reveal:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* "Password" on the left, "Forgot password?" on the right, on one line */
+.label-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.label-row label { margin-top: 0; }
+.label-row a { font-size: 14px; font-weight: 600; text-decoration: none; }
+
+/* the "remember me" tick box and its wording, side by side */
+label.check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 0;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+label.check input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    flex: none;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+.auth button[type="submit"] { width: 100%; margin-top: 24px; padding: 12px; }
+
+.auth .foot { text-align: center; margin: 24px 0 0; font-size: 14px; }
+
+
+/* the two account-type cards when registering */
+.pick { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 8px; }
+
+.pick label {
+    margin: 0;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    cursor: pointer;
+    font-weight: 400;
+    text-align: center;
+    transition: border-color var(--dur-1) var(--ease),
+                background-color var(--dur-1) var(--ease),
+                box-shadow var(--dur-1) var(--ease);
+}
+
+
+.pick label span { display: block; font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+.pick label small { color: var(--muted); font-size: 14px; line-height: 1.5; display: block; }
+
+.pick input { width: auto; margin: 0 0 8px; }
+
+/* the chosen card is outlined in teal */
+.pick input:checked ~ span { color: var(--primary); }
+.pick label:has(input:checked) {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+    background: var(--tint);
+}
+
+/* "or" with a rule either side */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+
+.social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 12px;
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    transition: border-color var(--dur-1) var(--ease),
+                background-color var(--dur-1) var(--ease);
+}
+
+
+.social img { width: 18px; height: 18px; }
+
+/* the row of suggested donation amounts, and the admin's people picker */
+.choices { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+
+.choices a {
+    padding: 12px 16px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-full);
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--card);
+    transition: border-color var(--dur-1) var(--ease),
+                color var(--dur-1) var(--ease),
+                background-color var(--dur-1) var(--ease);
+}
+
+
+.choices a.on { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+/* search and sort, sitting on one line in the page head */
+.tools { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.tools input, .tools select { width: auto; min-width: 176px; margin: 0; }
+.tools button { margin-top: 0; }
+
+
+/* ---------- tables ---------- */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--lift-1);
+}
+
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+}
+
+tr:last-child th, tr:last-child td { border-bottom: none; }
+
+/* A link in a table cell was a 17px tall target. The padding makes it
+   comfortable to tap and the matching negative margin means the row does not
+   get any taller - the hit area grows, the layout does not move. */
+td a {
+    display: inline-block;
+    padding: 12px 8px;
+    margin: -12px -8px;
+}
+
+/* a quiet row highlight, so a wide table is easy to read across */
+table tr { transition: background-color var(--dur-1) var(--ease); }
+
+th {
+    background: var(--tint);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+
+/* ---------- small pieces ---------- */
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: var(--r-full);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.tag.pending  { background: var(--warn-bg);  color: var(--warn-ink); }
+.tag.approved { background: var(--ok-bg);    color: var(--primary); }
+.tag.rejected { background: var(--error-bg); color: var(--error-ink); }
+
+.notice {
+    padding: 16px;
+    border-radius: var(--r);
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.notice.error { background: var(--error-bg); color: var(--error-ink); }
+.notice.ok    { background: var(--ok-bg);    color: var(--primary); }
+.notice.info  { background: var(--tint);     color: var(--secondary); }
+
+.empty {
+    padding: 40px;
+    text-align: center;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px dashed var(--line);
+    border-radius: var(--r-md);
+}
+
+.message {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    padding: 12px 16px;
+    margin-bottom: 8px;
+}
+
+.message.mine { background: var(--tint); }
+.message .who { font-size: 12px; color: var(--muted); margin: 0 0 4px; }
+.message p:last-child { margin: 0; }
+
+/* one automatic notification */
+.note-row {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--primary);
+    border-radius: var(--r);
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.note-row span { display: block; font-size: 12px; color: var(--muted); }
+
+.receipt {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    box-shadow: var(--lift-1);
+    padding: 32px;
+    max-width: 576px;
+}
+
+
+/* ---------- footer ---------- */
+
+.footer {
+    background: var(--card);
+    border-top: 1px solid var(--line);
+    margin-top: 64px;
+}
+
+.footer .inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 40px;
+}
+
+.footer .name {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 16px;
+}
+
+.footer h3 { font-size: 14px; font-weight: 600; margin: 0 0 16px; }
+
+.footer p { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+
+.footer ul { list-style: none; margin: 0; padding: 0; }
+.footer li { margin-bottom: 0; }
+
+/* the padding is the spacing here, so the tap target and the rhythm are the
+   same thing rather than a 17px link floating in an 8px gap */
+.footer li a {
+    display: inline-block;
+    padding: 12px 0;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+}
+
+.footer .rule {
+    grid-column: 1 / -1;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+}
+
+.footer .rule p { margin: 0; }
+
+
+/* ---------- small helpers ---------- */
+
+/* a vertical run of cards - replaces a margin-bottom written on each one */
+.list > * + * { margin-top: 16px; }
+
+/* one step of air above something, on the 4px grid */
+.gap-t { margin-top: 16px; }
+
+/* a small heading inside a card, below h3 but above body text */
+.mini { font-size: 14px; font-weight: 600; margin: 16px 0 4px; }
+
+.receipt h2 { margin-top: 0; }
+
+.card table { margin-top: 16px; }
+
+/* the box you type a message into */
+.composer { margin-top: 16px; max-width: 640px; }
+
+/* the admin's row of people to write to */
+.choices.people { margin-bottom: 24px; }
+
+
+/* ---------- movement ---------- */
+
+/* The page announces itself once and then stops. The title band arrives, the
+   content follows a beat later, and that is the whole sequence - there is no
+   scroll-triggered fade on every card, and nothing loops. A charity's records
+   should be readable the instant they land, not staged. */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+}
+
+.page-head,
+.hero .words > div,
+.impact-bar .inner,
+.grid > * {
+    animation: rise 320ms var(--ease) both;
+    animation-delay: 60ms;
+}
+
+.page-head,
+.hero .words > div { animation-delay: 0ms; }
+
+.grid > *:nth-child(2) { animation-delay: 100ms; }
+.grid > *:nth-child(3) { animation-delay: 140ms; }
+.grid > *:nth-child(4) { animation-delay: 180ms; }
+.grid > *:nth-child(5) { animation-delay: 220ms; }
+.grid > *:nth-child(6) { animation-delay: 260ms; }
+
+/* Somebody who has asked their system for less movement gets none of it.
+   Everything still ends up in its final state, it just gets there at once. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
+/* ---------- tablet ---------- */
+
+@media (max-width: 900px) {
+    .grid, .grid.two { grid-template-columns: repeat(2, 1fr); }
+    .stats           { grid-template-columns: repeat(2, 1fr); }
+
+    .impact-bar .inner { grid-template-columns: repeat(2, 1fr); gap: 24px 0; }
+    /* with two per row the divider belongs on the second column only */
+    .impact-bar .inner > div + div       { border-left: none; }
+    .impact-bar .inner > div:nth-child(even) { border-left: 1px solid var(--line); }
+
+    .footer .inner { grid-template-columns: repeat(2, 1fr); }
+
+    .subbar .bar-inner { padding: 0 24px; }
+}
+
+
+/* ---------- phone ---------- */
+
+@media (max-width: 640px) {
+    .grid, .grid.two { grid-template-columns: 1fr; }
+    .stats           { grid-template-columns: 1fr; }
+
+    .topbar { padding: 16px; }
+    .page   { padding: 24px 16px 48px; }
+
+    .hero        { padding: 48px 0 96px; text-align: center; }
+    .hero .words { padding: 0 16px; }
+    .hero p      { margin-left: auto; margin-right: auto; }
+    .hero .actions { justify-content: center; }
+
+    .impact-bar { padding: 0 16px; }
+    .band       { padding: 48px 16px 0; }
+
+    .footer .inner { grid-template-columns: 1fr; padding: 32px 16px; }
+
+    .page-head { padding: 16px; }
+    .tools     { width: 100%; }
+    .tools input, .tools select, .tools button { width: 100%; min-width: 0; }
+
+    .pick { grid-template-columns: 1fr; }
+
+    /* show the menu button and hide the links until it is pressed */
+    .menu-button {
+        display: block;
+        padding: 8px 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--r);
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* the site links and the account corner open together as one menu */
+    .topbar .site,
+    .topbar .account {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+    }
+
+    #menu-toggle:checked ~ .site,
+    #menu-toggle:checked ~ .account { display: flex; }
+
+    .topbar .site a,
+    .topbar .account a {
+        padding: 12px 0;
+        border-top: 1px solid var(--line);
+        border-bottom: none;
+    }
+
+    .topbar .site a.on { border-bottom: none; }
+
+    .account .signed-in { padding: 12px 0; border-top: 1px solid var(--line); }
+
+    .account a.give { text-align: center; margin-top: 12px; border-top: none; }
+
+    /* The section bar stays put and slides sideways instead of collapsing, so
+       the page you are on is always visible without opening a menu. On a narrow
+       screen the label sits above the links rather than stealing a third of the
+       row from them. */
+    .subbar .bar-inner {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 16px 0;
+    }
+
+    .subbar .section { padding: 0 0 4px; }
+
+    .subbar nav { gap: 16px; }
+
+    .subbar nav a { padding: 8px 0 12px; }
+
+    /* tables scroll sideways instead of squashing */
+    table { display: block; overflow-x: auto; white-space: nowrap; }
+
+    /* But the last column is usually the reason you opened the page - View a
+       receipt, Save a picture, Make somebody an admin. Scrolled off the right
+       edge it may as well not exist, so where that column holds a control it
+       is pinned to the edge and the rest of the row slides underneath it. */
+    table:has(td:last-child :is(a, button)) :is(th, td):last-child {
+        position: sticky;
+        right: 0;
+        background: var(--card);
+        border-left: 1px solid var(--line);
+    }
+
+    table:has(td:last-child :is(a, button)) th:last-child { background: var(--tint); }
+}
+
+
+/* ---------- hover, only where a pointer actually exists ----------
+   On a touch screen there is no hover, but a browser will still apply
+   these on tap and leave them stuck until you touch something else.
+   Behind this query they simply never fire on a phone, and the tap
+   highlight above does the acknowledging instead. */
+@media (hover: hover) {
+
+    .topbar .site a:hover { color: var(--primary); border-bottom-color: var(--line); }
+    .account a:hover { color: var(--primary); }
+    .account a.give:hover { background: var(--accent-strong); color: #fff; }
+    .subbar nav a:hover { color: var(--primary); border-bottom-color: var(--line); }
+    .back a:hover { color: var(--primary); gap: 12px; }
+    .program:hover { box-shadow: var(--lift-2); border-color: var(--muted); }
+    input:hover, select:hover, textarea:hover { border-color: var(--muted); }
+    button:hover, .button:hover { background: var(--primary-strong); border-color: var(--primary-strong); }
+    button.give:hover, .button.give:hover { background: var(--accent-strong); border-color: var(--accent-strong); }
+    button.quiet:hover, .button.quiet:hover { background: none; border-color: var(--primary); }
+    button.grey:hover { background: var(--tint); color: var(--ink); border-color: var(--muted); }
+    button.red:hover { background: var(--error-ink); border-color: var(--error-ink); }
+    button.reveal:hover { background-color: var(--tint); border: none; }
+    .label-row a:hover { text-decoration: underline; }
+    .pick label:hover { border-color: var(--muted); }
+    .social a:hover { border-color: var(--primary); background: var(--tint); }
+    .choices a:hover { border-color: var(--primary); color: var(--primary); }
+    table tr:hover td { background: var(--tint); }
+    .footer li a:hover { text-decoration: underline; }
+
+}
+
+
+/* ---------- printing a receipt ---------- */
+
+@media print {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .topbar, .subbar, .skip, .back, .footer, button, .button { display: none; }
+    body { background: #fff; }
+    .receipt { border: none; box-shadow: none; padding: 0; }
+}
