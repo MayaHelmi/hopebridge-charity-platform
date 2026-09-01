@@ -6,6 +6,7 @@ Center PHP & SQL project.
 | Deliverable | Link |
 | --- | --- |
 | Repository | <https://github.com/MayaHelmi/hopebridge-charity-platform> |
+| Empathy maps &amp; journeys | <https://claude.ai/code/artifact/5d09f5fe-6aa4-4578-8dc7-573b25607512> |
 | Mockups | [docs/mockups/](docs/mockups/) — four screens plus the design system |
 | Wireframes | <https://claude.ai/code/artifact/e30ecb73-492b-4ee4-95c5-8d6df0c2e06c> |
 | Presentation slides | <https://claude.ai/code/artifact/2e9acccb-8b28-4044-a67f-694e05d1dc80> |
