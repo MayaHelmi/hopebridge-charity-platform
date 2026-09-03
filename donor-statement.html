@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tax report - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <span class="signed-in">
+                Nadia Rashed                <b>donor</b>
+            </span>
+
+                            <a class="give" href="programs.html">Donate Now</a>
+            
+            <a href="index.html">Logout</a>
+
+            </div>
+
+</div>
+</header>
+
+<div class="subbar">
+<div class="bar-inner">
+
+    <span class="section">My giving</span>
+
+    <nav aria-label="My giving">
+                    <a href="donor-donations.html"
+               class=""
+               >My donations</a>
+                    <a href="donor-statement.html"
+               class="on"
+               aria-current="page">Annual statement</a>
+                    <a href="donor-updates.html"
+               class=""
+               >Updates</a>
+                    <a href="donor-messages.html"
+               class=""
+               >Messages</a>
+            </nav>
+
+</div>
+</div>
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="page-head">
+    <div>
+        <h1>Annual statement 2026</h1>
+        <p class="subtitle">Everything you gave in 2026, ready to print for your records.</p>
+    </div>
+
+    </div>
+
+
+    <div class="stats">
+        <div>
+            <span class="number">700</span>
+            <span class="label">JOD Given</span>
+        </div>
+        <div>
+            <span class="number">4</span>
+            <span class="label">Donations</span>
+        </div>
+        <div>
+            <span class="number">175</span>
+            <span class="label">Average Gift</span>
+        </div>
+        <div>
+            <span class="number">250</span>
+            <span class="label">Largest Gift</span>
+        </div>
+    </div>
+
+            <p class="notice ok">
+            The cause you supported most in 2026 was
+            <strong>Winter Blankets</strong>,
+            with 400.00 JOD.
+        </p>
+    
+    <div class="receipt statement">
+        <h2>HopeBridge</h2>
+        <p class="meta">
+            Annual statement for Nadia Rashed            &middot; 2026        </p>
+
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Program</th>
+                <th>Receipt</th>
+                <th>Amount</th>
+            </tr>
+                            <tr>
+                    <td>2026-06-12 10:15:00</td>
+                    <td>Winter Blankets</td>
+                    <td>#1</td>
+                    <td>250.00 JOD</td>
+                </tr>
+                            <tr>
+                    <td>2026-07-03 18:40:00</td>
+                    <td>Emergency Food Parcels</td>
+                    <td>#2</td>
+                    <td>100.00 JOD</td>
+                </tr>
+                            <tr>
+                    <td>2026-07-21 09:05:00</td>
+                    <td>Winter Blankets</td>
+                    <td>#3</td>
+                    <td>150.00 JOD</td>
+                </tr>
+                            <tr>
+                    <td>2026-08-18 16:35:00</td>
+                    <td>Medical Aid</td>
+                    <td>#6</td>
+                    <td>200.00 JOD</td>
+                </tr>
+                        <tr>
+                <th>Total</th>
+                <th></th>
+                <th></th>
+                <th>700.00 JOD</th>
+            </tr>
+        </table>
+    </div>
+
+    <button onclick="window.print()">Print this statement</button>
+
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="donor-messages.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

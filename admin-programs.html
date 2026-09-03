@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage programs - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <span class="signed-in">
+                Site Admin                <b>admin</b>
+            </span>
+
+            
+            <a href="index.html">Logout</a>
+
+            </div>
+
+</div>
+</header>
+
+<div class="subbar">
+<div class="bar-inner">
+
+    <span class="section">Administration</span>
+
+    <nav aria-label="Administration">
+                    <a href="admin-dashboard.html"
+               class=""
+               >Dashboard</a>
+                    <a href="admin-beneficiaries.html"
+               class=""
+               >Beneficiaries</a>
+                    <a href="admin-requests.html"
+               class=""
+               >Applications</a>
+                    <a href="admin-programs.html"
+               class="on"
+               aria-current="page">Manage programs</a>
+                    <a href="admin-donations.html"
+               class=""
+               >Donations</a>
+                    <a href="admin-users.html"
+               class=""
+               >Users</a>
+                    <a href="admin-messages.html"
+               class=""
+               >Messages</a>
+            </nav>
+
+</div>
+</div>
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="page-head">
+    <div>
+        <h1>Manage programs</h1>
+        <p class="subtitle">Add a program, switch one off, or write a report for the donors.</p>
+    </div>
+</div>
+
+
+
+<h2>All programs</h2>
+
+<table>
+    <tr><th>Program</th><th>Category</th><th>Picture</th><th>Raised</th><th>Goal</th><th>Shown on the site</th><th></th></tr>
+            <tr>
+            <td>Winter Blankets</td>
+            <td>Relief</td>
+            <td>
+                <form data-static="1" class="tools">
+                    <input type="hidden" name="what" value="picture">
+                    <input type="hidden" name="program_id" value="1">
+
+                    <select name="image">
+                        <option value="">No picture</option>
+                                                                                <option value="blankets.jpg"
+                                selected>
+                                blankets.jpg                            </option>
+                                                                                <option value="classroom.jpg"
+                                >
+                                classroom.jpg                            </option>
+                                                                                <option value="clinic.jpg"
+                                >
+                                clinic.jpg                            </option>
+                                                                                <option value="food-parcels.jpg"
+                                >
+                                food-parcels.jpg                            </option>
+                                            </select>
+
+                    <button type="submit" class="small quiet">Save</button>
+                </form>
+            </td>
+            <td>800.00 JOD</td>
+            <td>5,000.00 JOD</td>
+            <td>
+                <span class="tag approved">
+                    yes                </span>
+            </td>
+            <td>
+                <form data-static="1">
+                    <input type="hidden" name="what" value="toggle">
+                    <input type="hidden" name="program_id" value="1">
+                    <button type="submit" class="small grey">
+                        Hide                    </button>
+                </form>
+            </td>
+        </tr>
+            <tr>
+            <td>School Supplies</td>
+            <td>Education</td>
+            <td>
+                <form data-static="1" class="tools">
+                    <input type="hidden" name="what" value="picture">
+                    <input type="hidden" name="program_id" value="2">
+
+                    <select name="image">
+                        <option value="">No picture</option>
+                                                                                <option value="blankets.jpg"
+                                >
+                                blankets.jpg                            </option>
+                                                                                <option value="classroom.jpg"
+                                selected>
+                                classroom.jpg                            </option>
+                                                                                <option value="clinic.jpg"
+                                >
+                                clinic.jpg                            </option>
+                                                                                <option value="food-parcels.jpg"
+                                >
+                                food-parcels.jpg                            </option>
+                                            </select>
+
+                    <button type="submit" class="small quiet">Save</button>
+                </form>
+            </td>
+            <td>500.00 JOD</td>
+            <td>3,000.00 JOD</td>
+            <td>
+                <span class="tag approved">
+                    yes                </span>
+            </td>
+            <td>
+                <form data-static="1">
+                    <input type="hidden" name="what" value="toggle">
+                    <input type="hidden" name="program_id" value="2">
+                    <button type="submit" class="small grey">
+                        Hide                    </button>
+                </form>
+            </td>
+        </tr>
+            <tr>
+            <td>Emergency Food Parcels</td>
+            <td>Food</td>
+            <td>
+                <form data-static="1" class="tools">
+                    <input type="hidden" name="what" value="picture">
+                    <input type="hidden" name="program_id" value="3">
+
+                    <select name="image">
+                        <option value="">No picture</option>
+                                                                                <option value="blankets.jpg"
+                                >
+                                blankets.jpg                            </option>
+                                                                                <option value="classroom.jpg"
+                                >
+                                classroom.jpg                            </option>
+                                                                                <option value="clinic.jpg"
+                                >
+                                clinic.jpg                            </option>
+                                                                                <option value="food-parcels.jpg"
+                                selected>
+                                food-parcels.jpg                            </option>
+                                            </select>
+
+                    <button type="submit" class="small quiet">Save</button>
+                </form>
+            </td>
+            <td>400.00 JOD</td>
+            <td>8,000.00 JOD</td>
+            <td>
+                <span class="tag approved">
+                    yes                </span>
+            </td>
+            <td>
+                <form data-static="1">
+                    <input type="hidden" name="what" value="toggle">
+                    <input type="hidden" name="program_id" value="3">
+                    <button type="submit" class="small grey">
+                        Hide                    </button>
+                </form>
+            </td>
+        </tr>
+            <tr>
+            <td>Medical Aid</td>
+            <td>Health</td>
+            <td>
+                <form data-static="1" class="tools">
+                    <input type="hidden" name="what" value="picture">
+                    <input type="hidden" name="program_id" value="4">
+
+                    <select name="image">
+                        <option value="">No picture</option>
+                                                                                <option value="blankets.jpg"
+                                >
+                                blankets.jpg                            </option>
+                                                                                <option value="classroom.jpg"
+                                >
+                                classroom.jpg                            </option>
+                                                                                <option value="clinic.jpg"
+                                selected>
+                                clinic.jpg                            </option>
+                                                                                <option value="food-parcels.jpg"
+                                >
+                                food-parcels.jpg                            </option>
+                                            </select>
+
+                    <button type="submit" class="small quiet">Save</button>
+                </form>
+            </td>
+            <td>200.00 JOD</td>
+            <td>6,000.00 JOD</td>
+            <td>
+                <span class="tag approved">
+                    yes                </span>
+            </td>
+            <td>
+                <form data-static="1">
+                    <input type="hidden" name="what" value="toggle">
+                    <input type="hidden" name="program_id" value="4">
+                    <button type="submit" class="small grey">
+                        Hide                    </button>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+<h2>Add a program</h2>
+
+<div class="form-box">
+    <form data-static="1">
+        <input type="hidden" name="what" value="program">
+
+        <label for="title">Name of the program</label>
+        <input type="text" id="title" name="title">
+
+        <label for="description">What it does</label>
+        <textarea id="description" name="description"></textarea>
+
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category" placeholder="Education, Health, Food, Relief">
+
+        <label for="image">Picture</label>
+        <select id="image" name="image">
+            <option value="">No picture - show the category on a plain panel</option>
+                            <option value="blankets.jpg">
+                    blankets.jpg                </option>
+                            <option value="classroom.jpg">
+                    classroom.jpg                </option>
+                            <option value="clinic.jpg">
+                    clinic.jpg                </option>
+                            <option value="food-parcels.jpg">
+                    food-parcels.jpg                </option>
+                    </select>
+
+        <label for="eligibility">Who it is for</label>
+        <textarea id="eligibility" name="eligibility"></textarea>
+
+        <label for="goal_amount">Goal in JOD</label>
+        <input type="text" id="goal_amount" name="goal_amount">
+
+        <button type="submit">Add the program</button>
+    </form>
+</div>
+
+<h2>Write a report for the donors</h2>
+
+<div class="form-box">
+    <form data-static="1">
+        <input type="hidden" name="what" value="update">
+
+        <label for="program_id">Which program</label>
+        <select id="program_id" name="program_id">
+                            <option value="1">Winter Blankets</option>
+                            <option value="2">School Supplies</option>
+                            <option value="3">Emergency Food Parcels</option>
+                            <option value="4">Medical Aid</option>
+                    </select>
+
+        <label for="update_title">Title</label>
+        <input type="text" id="update_title" name="update_title">
+
+        <label for="update_body">What happened</label>
+        <textarea id="update_body" name="update_body"></textarea>
+
+        <button type="submit">Publish the report</button>
+    </form>
+</div>
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="admin-messages.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

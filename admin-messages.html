@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Messages - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <span class="signed-in">
+                Site Admin                <b>admin</b>
+            </span>
+
+            
+            <a href="index.html">Logout</a>
+
+            </div>
+
+</div>
+</header>
+
+<div class="subbar">
+<div class="bar-inner">
+
+    <span class="section">Administration</span>
+
+    <nav aria-label="Administration">
+                    <a href="admin-dashboard.html"
+               class=""
+               >Dashboard</a>
+                    <a href="admin-beneficiaries.html"
+               class=""
+               >Beneficiaries</a>
+                    <a href="admin-requests.html"
+               class=""
+               >Applications</a>
+                    <a href="admin-programs.html"
+               class=""
+               >Manage programs</a>
+                    <a href="admin-donations.html"
+               class=""
+               >Donations</a>
+                    <a href="admin-users.html"
+               class=""
+               >Users</a>
+                    <a href="admin-messages.html"
+               class="on"
+               aria-current="page">Messages</a>
+            </nav>
+
+</div>
+</div>
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="page-head">
+    <div>
+        <h1>Messages</h1>
+
+                    <p class="subtitle">Choose who you want to write to.</p>
+            </div>
+</div>
+
+
+            <div class="choices people">
+                            <a href="admin-messages.html"
+                   class="">
+                    Khaled Mansour (beneficiary)
+                </a>
+                            <a href="admin-messages.html"
+                   class="on">
+                    Nadia Rashed (donor)
+                </a>
+                            <a href="admin-messages.html"
+                   class="">
+                    Omar Haddad (donor)
+                </a>
+                            <a href="admin-messages.html"
+                   class="">
+                    Rania Odeh (beneficiary)
+                </a>
+                    </div>
+    
+
+
+
+    <h2>Conversation with Nadia Rashed</h2>
+
+                        <div class="message ">
+                <p class="who">
+                    Nadia Rashed                    &middot; 2026-09-02 12:53:20                </p>
+                <p>Hello, I gave to the Winter Blankets program last month. Is there a report on how it went?</p>
+            </div>
+                    <div class="message mine">
+                <p class="who">
+                    You                    &middot; 2026-09-02 12:53:20                </p>
+                <p>Thank you Nadia. The first delivery report is on your Updates page now, and a second one follows in October.</p>
+            </div>
+            
+    <div class="form-box composer">
+        <form data-static="1">
+            <label for="body">Your message</label>
+            <textarea id="body" name="body"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="admin-messages.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

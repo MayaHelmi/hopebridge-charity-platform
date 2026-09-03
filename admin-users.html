@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Users - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <span class="signed-in">
+                Site Admin                <b>admin</b>
+            </span>
+
+            
+            <a href="index.html">Logout</a>
+
+            </div>
+
+</div>
+</header>
+
+<div class="subbar">
+<div class="bar-inner">
+
+    <span class="section">Administration</span>
+
+    <nav aria-label="Administration">
+                    <a href="admin-dashboard.html"
+               class=""
+               >Dashboard</a>
+                    <a href="admin-beneficiaries.html"
+               class=""
+               >Beneficiaries</a>
+                    <a href="admin-requests.html"
+               class=""
+               >Applications</a>
+                    <a href="admin-programs.html"
+               class=""
+               >Manage programs</a>
+                    <a href="admin-donations.html"
+               class=""
+               >Donations</a>
+                    <a href="admin-users.html"
+               class="on"
+               aria-current="page">Users</a>
+                    <a href="admin-messages.html"
+               class=""
+               >Messages</a>
+            </nav>
+
+</div>
+</div>
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="page-head">
+    <div>
+        <h1>Users</h1>
+        <p class="subtitle">Everyone with an account, and who can reach the admin pages.</p>
+    </div>
+</div>
+
+
+<p class="notice info">
+    Only donor accounts can be made admins. Beneficiary records hold private
+    information, so those accounts are kept out of the admin side.
+</p>
+
+<table>
+    <tr><th>Name</th><th>Email</th><th>Role</th><th>Signed up with</th><th>Access</th></tr>
+            <tr>
+            <td>Site Admin</td>
+            <td>admin@hopebridge.jo</td>
+            <td>admin</td>
+            <td>local</td>
+            <td>
+                                    <span class="meta">this is you</span>
+
+                            </td>
+        </tr>
+            <tr>
+            <td>Nadia Rashed</td>
+            <td>donor@example.com</td>
+            <td>donor</td>
+            <td>local</td>
+            <td>
+                                    <form data-static="1">
+                        <input type="hidden" name="user_id" value="2">
+                        <button type="submit" name="decision" value="make_admin" class="small">Make admin</button>
+                    </form>
+
+                            </td>
+        </tr>
+            <tr>
+            <td>Omar Haddad</td>
+            <td>giver@example.com</td>
+            <td>donor</td>
+            <td>local</td>
+            <td>
+                                    <form data-static="1">
+                        <input type="hidden" name="user_id" value="4">
+                        <button type="submit" name="decision" value="make_admin" class="small">Make admin</button>
+                    </form>
+
+                            </td>
+        </tr>
+            <tr>
+            <td>Khaled Mansour</td>
+            <td>family@example.com</td>
+            <td>beneficiary</td>
+            <td>local</td>
+            <td>
+                                    <span class="meta">&mdash;</span>
+                            </td>
+        </tr>
+            <tr>
+            <td>Rania Odeh</td>
+            <td>waiting@example.com</td>
+            <td>beneficiary</td>
+            <td>local</td>
+            <td>
+                                    <span class="meta">&mdash;</span>
+                            </td>
+        </tr>
+    </table>
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="admin-messages.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

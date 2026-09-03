@@ -208,7 +208,7 @@ label.check:focus-within {
 
 
 /* The name of whoever is logged in, so nobody has to guess.
-   Deliberately NOT called .who - messages.php already uses that for the
+   Deliberately NOT called .who - the messages page already uses that for the
    sender line on a message bubble, and two meanings on one class name is
    how a stylesheet starts lying to you. */
 .signed-in { font-size: 14px; color: var(--muted); }

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <a href="login.html">Login/Register</a>
+            <a class="give" href="programs.html">Donate Now</a>
+
+            </div>
+
+</div>
+</header>
+
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="auth">
+
+    <div class="form-box">
+
+        <div class="brand">
+            <img class="mark" src="images/logo.png" alt="">
+            <span class="name">HopeBridge</span>
+            <p>Sign in to continue to your dashboard</p>
+        </div>
+
+        
+        
+        <form data-static="1">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com"
+                   value="">
+
+            <div class="label-row">
+                <label for="password">Password</label>
+                <a href="forgot.html">Forgot password?</a>
+            </div>
+            <div class="reveal-wrap">
+                <input type="password" id="password" name="password">
+                <button type="button" class="reveal" aria-label="Show the password" hidden></button>
+            </div>
+
+            <label class="check">
+                <input type="checkbox" name="remember" value="yes"
+                    >
+                Remember me for 30 days
+            </label>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="divider">OR</p>
+
+        <div class="social">
+            <a href="#" data-static="1">
+                <img src="images/google.svg" alt=""> Continue with Google
+            </a>
+            <a href="#" data-static="1">
+                <img src="images/facebook.svg" alt=""> Continue with Facebook
+            </a>
+        </div>
+
+        <p class="divider">OR LOOK AROUND</p>
+
+        <div class="social roles">
+            <a href="donor-donations.html">Browse as a donor</a>
+            <a href="beneficiary-profile.html">Browse as a beneficiary</a>
+            <a href="admin-dashboard.html">Browse as an administrator</a>
+        </div>
+
+        <p class="foot">New to HopeBridge? <a href="register.html">Register here</a></p>
+
+    </div>
+
+</div>
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="login.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

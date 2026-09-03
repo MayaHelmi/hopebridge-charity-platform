@@ -1,7 +1,7 @@
 # HopeBridge
 
-A charity platform built with plain **PHP 8** and **MySQL**, for the Orange Digital
-Center PHP & SQL project.
+A charity website built with plain **HTML, CSS and a little JavaScript**, for the
+Orange Digital Center project.
 
 | Deliverable | Link |
 | --- | --- |
@@ -13,19 +13,81 @@ Center PHP & SQL project.
 | Trello board | *to be created — the cards to enter are in [docs/trello-board.md](docs/trello-board.md)* |
 
 Three kinds of user share one site: **donors** who give, **beneficiaries** who ask for
-help, and **administrators** who run the charity.
+help, and **administrators** who run the charity. Every screen belonging to all three
+is here as a finished page.
 
-No framework, no Composer, no build step. Flat PHP files, one stylesheet, and a
-`schema.sql` that creates the database and fills it with example data.
+No framework, no build step: 28 HTML pages, one stylesheet, one small script.
+
+---
+
+## ⚠️ This used to be a PHP and MySQL application
+
+Up to commit `eb48c14` this project was a working PHP 8 + MySQL application with real
+accounts, sessions, an approval workflow and a database. **That has been replaced by this
+HTML and CSS version, so the following no longer exist:**
+
+- registering, logging in and logging out, and the password hashing behind them
+- the "remember me" cookies and the forgotten-password links
+- Google and Facebook sign-in
+- the MySQL database and all eight of its tables
+- saving anything at all — donating, applying for help, approving a beneficiary,
+  publishing a report or sending a message
+
+Every page now shows **saved example information**. Pressing a button that used to send
+something to the server shows a short note saying so, rather than looking broken.
+
+The PHP version is still in this repository's history. To read it or bring it back:
+
+```bash
+git checkout eb48c14
+```
+
+---
+
+## Running it
+
+There is nothing to install and no database to create. **Double-click
+`index.html`** and the whole site works — every link, picture and stylesheet is
+relative, so it runs straight off the disk.
+
+If you would rather serve it over `http://`, run this **from inside this folder**:
+
+```bash
+php -S localhost:8000
+```
+
+Then open <http://localhost:8000>. PHP is only acting as a plain file server here;
+there is no PHP left in the project.
+
+> On macOS, `python3 -m http.server` may refuse to start from a folder inside
+> `Desktop` with *Operation not permitted*, because that Python has not been granted
+> access to the Desktop. The command above avoids that.
+
+Because these are plain files, this version **can** be published on GitHub Pages, which
+the PHP version could not.
+
+## Looking around
+
+There is no login, so the front door to each role's pages is on
+[login.html](login.html), under **OR LOOK AROUND**:
+
+| Role | Starts at |
+| --- | --- |
+| Donor | [donor-donations.html](donor-donations.html) |
+| Beneficiary | [beneficiary-profile.html](beneficiary-profile.html) |
+| Administrator | [admin-dashboard.html](admin-dashboard.html) |
+
+Inside a role, the second navigation bar links that role's pages to each other. The top
+bar always returns to the four public pages.
 
 ---
 
 ## Design
 
 The interface follows the **HopeBridge** design system: deep teal `#00685f` for the
-brand and primary actions, clay `#b05e3d` reserved for *Donate Now*, Inter
-throughout, a 1280px container, and every margin, padding and gap on a **4 point
-grid**. Cards are 12px rounded with a soft `0 4px 12px` shadow.
+brand and primary actions, clay `#b05e3d` reserved for *Donate Now*, Inter throughout,
+a 1280px container, and every margin, padding and gap on a **4 point grid**. Cards are
+12px rounded with a soft `0 4px 12px` shadow.
 
 ### Mockups
 
@@ -42,309 +104,107 @@ The full colour, type, spacing and component specification is in
 ### Wireframes
 
 Every screen drawn as structure rather than pixels, with numbered notes on the decisions
-that are not obvious from the drawing, and a table tracing each lettered story in the
-brief to the file that answers it:
+that are not obvious from the drawing:
 <https://claude.ai/code/artifact/e30ecb73-492b-4ee4-95c5-8d6df0c2e06c>
 
-To regenerate the wireframes in Stitch instead, the prompts are in
-[docs/stitch-wireframe-prompts.md](docs/stitch-wireframe-prompts.md) — one per screen,
-using the exact wording the built application uses.
-
----
-
-## Version control
-
-This folder is a git repository, committed as `MayaHelmi`. **No remote is configured and
-nothing has been pushed** — creating the GitHub repository and pushing is yours to do.
-
-## Running it
-
-You need PHP 8 and MySQL running locally.
-
-Create the database and the example data:
-
-```bash
-mysql -u root < schema.sql
-```
-
-Start the site:
-
-```bash
-php -S localhost:8000
-```
-
-Then open <http://localhost:8000>.
-
-If your MySQL root user has a password, put it in `config.php`.
-
-### Following a password reset
-
-There is no mail server, so a reset link is not emailed. It is appended to
-`hopebridge-outbox.txt` in the folder **above** this one — open that file and follow the
-newest link. The site itself deliberately says nothing about this, because a visitor
-should only ever see "a reset link has been sent".
-
-### Accounts to log in with
-
-| Role | Email | Password |
-| --- | --- | --- |
-| Administrator | admin@hopebridge.jo | admin123 |
-| Donor | donor@example.com | pass123 |
-| Donor | giver@example.com | pass123 |
-| Beneficiary (approved) | family@example.com | pass123 |
-| Beneficiary (waiting to be approved) | waiting@example.com | pass123 |
-
-Every name, email and amount in `schema.sql` is invented for the demo.
+⚠️ The wireframes and slides were written for the PHP version, so where they describe
+logging in, the database or saving a record, they describe the old application rather
+than these pages.
 
 ---
 
 ## The pages
 
-**Public**
+**Public — four pages anybody can reach**
 
-| Page | What it does |
+| Page | What it shows |
 | --- | --- |
-| `index.php` | Home. Hero, four live numbers counted from the database, three featured programs. |
-| `programs.php` | Every active program, with search, a category filter and three sort orders. |
-| `program.php` | One program: photo, progress, who it is for, and its published reports. |
-| `about.php` | What the platform is and how the three roles work. |
-| `impact.php` | Live totals, a per-program table, and every report the admins have published. |
-| `login.php` / `register.php` | Email and password, **Remember me**, plus the Google and Facebook buttons. |
-| `forgot.php` | Ask for a password reset link. |
-| `reset.php` | Choose a new password from that link. |
+| [index.html](index.html) | The landing page: the hero, what the charity does, and the programs in brief. |
+| [programs.html](programs.html) | Every active program, with the search, category and sort controls. |
+| [program-1.html](program-1.html) … [program-4.html](program-4.html) | One program: its picture, goal, who it is for, and its progress reports. |
+| [about.html](about.html) | Who HopeBridge is and the three kinds of account. |
+| [impact.html](impact.html) | The totals: money raised, families helped, programs running. |
+
+**Signing in — the forms, without anything behind them**
+
+[login.html](login.html) · [register.html](register.html) · [forgot.html](forgot.html)
 
 **Donor**
 
-| Page | What it does |
+| Page | What it shows |
 | --- | --- |
-| `donate.php` | Choose an amount and give to a program. |
-| `donor_donations.php` | Everything this donor has given, with a link to each receipt. |
-| `donor_receipt.php` | A printable receipt for one donation. |
-| `donor_updates.php` | Reports about the programs this donor actually gave to. |
-| `donor_tax_report.php` | One year of giving on a single printable page, with totals. |
+| [donor-donations.html](donor-donations.html) | Every donation with a running total. |
+| [donor-statement.html](donor-statement.html) | The annual statement, grouped by program. |
+| [donor-receipt.html](donor-receipt.html) | A printable receipt for one donation. |
+| [donor-updates.html](donor-updates.html) | Progress reports for the programs this donor funded. |
+| [donate.html](donate.html) | Choosing an amount. |
+| [donor-messages.html](donor-messages.html) | A conversation with the charity. |
 
 **Beneficiary**
 
-| Page | What it does |
+| Page | What it shows |
 | --- | --- |
-| `beneficiary_profile.php` | Their details, their status, and their notifications. |
-| `beneficiary_services.php` | What help is available and how to apply. |
-| `beneficiary_requests.php` | Every application and what happened to it. |
+| [beneficiary-services.html](beneficiary-services.html) | What help exists and who each program is for. |
+| [beneficiary-requests.html](beneficiary-requests.html) | Every application and what was decided. |
+| [beneficiary-profile.html](beneficiary-profile.html) | The eligibility details, the approval state, and notifications. |
+| [beneficiary-messages.html](beneficiary-messages.html) | A private conversation with the charity. |
 
 **Administrator**
 
-| Page | What it does |
+| Page | What it shows |
 | --- | --- |
-| `admin_dashboard.php` | Totals, money by month, who gives the most, how each program is doing. |
-| `admin_beneficiaries.php` | Approve or refuse the people asking for help. |
-| `admin_requests.php` | Decide each application, with the details needed to judge it. |
-| `admin_programs.php` | Add programs, hide them, and publish reports for donors. |
-| `admin_donations.php` | Every donation received. |
-| `admin_users.php` | Who can reach the admin side. |
-
-`messages.php` is shared: donors and beneficiaries write to the admin, and the admin
-picks who to reply to.
+| [admin-dashboard.html](admin-dashboard.html) | Money raised, money by month, who gives most, how each program is doing. |
+| [admin-beneficiaries.html](admin-beneficiaries.html) | The profiles waiting to be checked. |
+| [admin-requests.html](admin-requests.html) | The applications waiting for a decision. |
+| [admin-programs.html](admin-programs.html) | The programs, the add form, and the report form. |
+| [admin-donations.html](admin-donations.html) | Every donation. |
+| [admin-users.html](admin-users.html) | Everyone with an account, and who can reach the admin pages. |
+| [admin-messages.html](admin-messages.html) | Writing to any donor or beneficiary. |
 
 ---
-
-## The database
-
-Ten tables: `users`, `beneficiaries`, `programs`, `donations`, `requests`,
-`updates`, `notifications`, `messages`, `remember_tokens`, `password_resets`.
-See `schema.sql`.
-
-Two decisions worth knowing about:
-
-- **`config.php` reads the role from the database on every request**, not only at
-  login. An administrator whose access is taken away loses it immediately instead of
-  keeping it until they log out.
-- **There is deliberately no "you cannot remove the last administrator" check.** You
-  are not allowed to change your own access, so anyone you are able to demote implies
-  a second administrator already exists. The check would be unreachable.
-
----
-
-## Security
-
-- Passwords are stored with `password_hash()`; the real password is never saved.
-- Every query uses a **PDO prepared statement**. The sort order on `programs.php`
-  comes from a fixed list rather than the address bar.
-- Everything a user typed is printed through `htmlspecialchars()`.
-- Every page checks the session role before showing anything, and a donor cannot open
-  another donor's receipt.
-- The session id is regenerated on login, so a session id somebody already knew is useless.
 
 ## Navigation
 
-The site has **two bars**, and the split is what stops anyone getting stuck.
-
-The **site bar** is identical for everybody, signed in or not: Home, Programs, About,
-Impact. An administrator deep in the Users page can still reach the public site in one
-click. It also names who is signed in and in which role, so nobody has to guess which
-account they are looking at.
-
-The **section bar** appears only once you are logged in, and holds the pages belonging to
-your role under a heading — *My giving*, *My support* or *Administration*. Because every
-page in a role sits in that bar, each one is a single click from all of its siblings.
-
-Pages you drill *into* — a single program, the donate form, one receipt — also carry a
-back link naming where you came from, rather than relying on the browser button.
-
-On a phone the site bar collapses into the menu button, while the section bar stays
-visible and slides sideways, so the page you are on is never hidden behind a menu.
+Two bars. The **site bar** is the same on every page, so no role is ever trapped. The
+**section bar** appears on a role's pages and links that role's pages to each other, so
+each one is a single click from all of its siblings. Both are wrapped in one sticky
+element, because the top bar changes height when its links wrap.
 
 ## Loading
 
-A page here arrives complete: PHP renders it and the browser then asks for nothing more,
-so there is no stage where the layout exists but the content does not. There is nothing
-to put a content skeleton in front of, and adding one would only be theatre.
-
-What *does* arrive late is a photograph — they are 140 to 190KB each. So the space a
-photograph is about to fill carries a quiet shimmer until it paints. The placeholder is
-the background of the box the image sits in, so the image covers it on arrival; a few
-lines in `script.js` then switch the shimmer off, because covering an animation does not
-stop it running.
-
-Only boxes that really do contain an image get it. A program with no photograph shows its
-category on a teal panel, and that panel does not shimmer, because nothing is coming.
-
-Photographs below the first screen are marked `loading="lazy"`; the hero is not, because
-it is the first thing anyone sees.
+Pictures sit on a shimmering panel that the picture paints over once it arrives. It is
+pure CSS on `.photo:has(img)`, with nothing to switch off — and it is deliberately
+scoped to `:has(img)`, so a program with no photograph keeps its plain teal panel
+instead of shimmering for ever.
 
 ## Movement
 
-One curve for the whole site, `cubic-bezier(0.2, 0, 0, 1)` — quick to leave, slow to
-settle, no bounce — and two speeds: 120ms for things you touch, 220ms for panels.
-
-The page performs **one** entrance: the title band arrives, the cards follow on a short
-stagger, and that is all. There is no scroll-triggered fade on every element and nothing
-loops. Program cards deepen their shadow on hover but do **not** lift or zoom, because
-the card as a whole is not clickable — only the two buttons inside it are, and it must
-not pretend otherwise.
-
-Every hover style sits behind `@media (hover: hover)`. A touch screen has no hover, but a
-browser will still apply those styles on tap and leave them stuck until you touch
-something else; behind that query they never fire on a phone. A faint teal
-`-webkit-tap-highlight-color` acknowledges the press instead of the browser's grey box.
-
-Anyone whose system asks for reduced motion gets none of it; `prefers-reduced-motion`
-collapses every animation and transition, and printing disables them too.
+Content settles in on load. Everything is behind `prefers-reduced-motion`, and all
+`:hover` rules are behind `@media (hover: hover)` so a tap does not leave a stuck
+hover state on a phone.
 
 ## JavaScript
 
-There is one small script, `script.js`, and it does two things. The first is the **eye
-button** next to each password box, which shows and hides what has been typed. The buttons are written into
-the page with the `hidden` attribute already on them and the script is what removes it, so
-somebody with JavaScript switched off never sees a button that would not work.
+Three small pieces in [script.js](script.js), and the site works without any of them:
 
-The two pictures, `images/eye.svg` and `images/eye-off.svg`, are set in `style.css`, so the
-button itself is an empty tag and the script only has to add or remove a class. The meaning
-is carried by the `aria-label`, which changes with the state, because the button has no
-words in it.
+1. the eye button that shows and hides a typed password,
+2. removing the shimmer once a picture has loaded,
+3. the note explaining that a button has nothing to send to.
 
-The second is switching off the loading shimmer once a photograph has arrived. Without it
-the animation would keep running behind an image that finished loading long ago.
+## Responsive
 
-Everything else on the site, including the mobile menu, works without JavaScript.
-
-### Staying logged in, and forgotten passwords
-
-**Remember me** keeps a random 32 byte token in a cookie and only its **SHA-256 hash**
-in `remember_tokens`, so a stolen copy of the table cannot be used to log in as anybody.
-The cookie is `HttpOnly` (JavaScript cannot read it) and `SameSite=Lax` (not sent from
-another site), and it lasts 30 days. Logging out deletes both the cookie and the row.
-
-**Forgot password** works the same way: a one-hour, single-use token whose hash is stored
-in `password_resets`. Asking for a new link cancels any older unused one, and changing
-the password deletes every "remember me" token for that account, so a password change
-really does sign other browsers out.
-
-`forgot.php` always shows the same message whether or not the address is registered, and
-it writes a line to the outbox either way, so the page cannot be used to discover which
-email addresses have accounts.
-
-### Verified
-
-Checked by hand against the running site:
-
-- All 24 pages load with **no PHP warnings or notices** — 45 page/role combinations
-  covering anonymous, donor, approved beneficiary, waiting beneficiary and administrator,
-  including with missing and nonsense parameters.
-- Signed-out and wrong-role visitors are redirected away from every private page.
-- A donor opening someone else's receipt is refused.
-- A beneficiary who has not been approved cannot apply; the insert does not happen.
-- `?sort=' OR 1=1--` does not change the query.
-- A `<script>` tag stored in a program category comes back escaped.
-- Donating writes the row and the totals move.
-- Laid out correctly at 375px, 768px and 1440px.
-- **Tap targets measured at 390px wide.** Every control on the donor pages is at least
-  44px tall except the logo, which is 114px wide and is not a primary action. Table
-  links and the back link use padding with a matching negative margin, so the target
-  grows without the row getting taller.
-- Every spacing value in the stylesheet is a multiple of 4, and every font size is on
-  the type scale. There are **no inline styles left in any PHP file**.
-- On a phone, a table's action column stays pinned to the right edge while the rest of
-  the row scrolls under it, so *View*, *Save* and *Make admin* are never scrolled out of
-  reach. Tables whose last column is only data are left alone — checked on all six.
-- Measured **zero layout shift** on load: images have no width and height attributes but
-  their containers are sized in CSS, so nothing jumps into place.
-- **Remember me:** no cookie and no row when the box is unticked; with it ticked the
-  cookie signs the browser back in after the session is thrown away; the raw token is
-  not present anywhere in the database; logging out removes the row and the stale
-  cookie is then refused.
-- **Forgot password:** a real and an unknown address produce identical pages; the link
-  opens the form; a made-up token, a used token and an expired token are all refused;
-  mismatched and too-short passwords are rejected; after a reset the old password fails,
-  the new one works, and remembered sessions are gone.
-- The outbox file cannot be read over HTTP — checked with a canary string against five
-  path-traversal attempts.
-- A `../../../etc/passwd` in the program picture field is reduced to a bare file name.
-
-### Not real
-
-- **Payment is simulated.** Donating writes a row in `donations`. No money moves and no
-  payment provider is involved. The interface does not claim otherwise — there is no card
-  form and no "payment successful" wording anywhere — but it no longer carries a notice
-  saying so either, because the site is meant to present as a finished product. **Before
-  this is ever put in front of real donors, a payment provider has to be wired in.**
-- **There is no mail server, so reset links are not emailed.** They are appended to
-  `hopebridge-outbox.txt` in the folder *above* the website, which the web server cannot
-  serve. In production that one `file_put_contents` call becomes a send-mail call and
-  nothing else changes.
-- **Google and Facebook login is written but has never been run against real keys.**
-  `oauth.php` does the full flow with a CSRF `state` check, but the keys in
-  `config.php` are empty, so the buttons show a setup message. The Facebook Graph
-  version is pinned to `v19.0` and may be out of date.
-
----
+One column on a phone, two on a tablet, the full grid on a desktop. Tap targets are at
+least 44px. Wide tables scroll inside their own box with the last column pinned, so no
+data is dropped and the page itself never scrolls sideways.
 
 ## Pictures
 
-- `images/logo.png` is the HopeBridge mark, two interlocking hearts. It was supplied with a
-  transparent background, so it sits directly on the bar with nothing behind it, and it is
-  used three ways: beside the wordmark in the top bar, above the sign-in card, and as the
-  browser tab icon.
+Programme photographs live in `images/programs/`; the rest of the furniture is in
+`images/`.
 
-  It was resized, and its two colours were corrected. As supplied the hearts were
-  `#02464C` and `#CF512A`, which are close to the brand but not the same; they are now
-  exactly `--primary` `#00685F` and `--accent` `#B05E3D`, so the mark matches the wordmark
-  beside it and the Donate button. Each visible pixel was mapped to whichever heart it
-  belonged to and its transparency left alone, so the edges are as smooth as they were.
-- `images/icons/` holds the interface icons, one small SVG each: the magnifier in the
-  search field, the people mark beside "People helped", the heart on the hero's Donate
-  button, the bars on the small-screen menu button, and one per programme category. They
-  are set as CSS backgrounds rather than written into the markup, so a page carries no
-  icon code, and a category the icons do not cover falls back to a plain tag.
-- `images/` holds the pictures the site itself uses. `planting.jpg` is the illustration
-  on the About page. `hero.jpg` is the original download and is left untouched;
-  `hero-crop.jpg` is the same picture with the AI rendering artefact trimmed off the top,
-  and that is the one the home page uses.
-- `images/programs/` holds the program photographs. **Drop a `.jpg` or `.png` in
-  there and it appears in the picture menu** on *Manage programs*, for both new
-  programs and existing ones.
-- All four example programs have a photograph, and so does the About page. All five were
-  generated from the prompts in [docs/image-prompts.md](docs/image-prompts.md) and are set
-  in the Levant, to match the Jordanian towns and JOD amounts in the data. Each was resized
-  to 1400px wide and otherwise left exactly as supplied.
-- A program with **no** picture falls back to its category on a teal panel, so a missing
-  or renamed file never leaves a broken image on the page.
+---
+
+## Version control
+
+Committed as `MayaHelmi` and pushed to
+<https://github.com/MayaHelmi/hopebridge-charity-platform>.

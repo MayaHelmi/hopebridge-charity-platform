@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My profile - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <span class="signed-in">
+                Khaled Mansour                <b>beneficiary</b>
+            </span>
+
+            
+            <a href="index.html">Logout</a>
+
+            </div>
+
+</div>
+</header>
+
+<div class="subbar">
+<div class="bar-inner">
+
+    <span class="section">My support</span>
+
+    <nav aria-label="My support">
+                    <a href="beneficiary-services.html"
+               class=""
+               >Help available</a>
+                    <a href="beneficiary-requests.html"
+               class=""
+               >My requests</a>
+                    <a href="beneficiary-profile.html"
+               class="on"
+               aria-current="page">My profile</a>
+                    <a href="beneficiary-messages.html"
+               class=""
+               >Messages</a>
+            </nav>
+
+</div>
+</div>
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="page-head">
+    <div>
+        <h1>My profile</h1>
+        <p class="subtitle">The admin reads these details to check which programs you can use.</p>
+    </div>
+</div>
+
+
+
+    <p class="notice ok">
+        Your account is approved. You can <a href="beneficiary-services.html">see what help is available</a>.
+    </p>
+
+    <h2>Recent updates for you</h2>
+            <div class="note-row">
+            Your application for Winter Blankets was accepted.            <span>2026-06-06 10:30:00</span>
+        </div>
+            <div class="note-row">
+            Your account has been approved. You can now apply for help.            <span>2026-06-01 09:00:00</span>
+        </div>
+    
+<h2>My details</h2>
+
+<div class="form-box">
+    <form data-static="1">
+        <label for="phone">Phone number</label>
+        <input type="text" id="phone" name="phone" value="0790000000">
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" value="Zarqa">
+
+        <label for="household_size">How many people live in your home</label>
+        <input type="text" id="household_size" name="household_size" value="6">
+
+        <label for="monthly_income">Monthly income in JOD</label>
+        <input type="text" id="monthly_income" name="monthly_income" value="180.00">
+
+        <label for="situation">Tell us about your situation</label>
+        <textarea id="situation" name="situation">I lost my job last year and I have four children at school.</textarea>
+
+        <button type="submit">Save my details</button>
+    </form>
+</div>
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="beneficiary-messages.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Donations - HopeBridge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip" href="#content">Skip to the content</a>
+
+<div class="bars">
+
+<header class="topbar">
+<div class="bar-inner">
+
+    <a class="logo" href="index.html">
+        <img src="images/logo.png" alt="">
+        HopeBridge
+    </a>
+
+    <!-- a checkbox is used so the small-screen menu works without JavaScript -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-button">Menu</label>
+
+    <nav class="site" aria-label="Site">
+                    <a href="index.html"
+               class=""
+               >Home</a>
+                    <a href="programs.html"
+               class=""
+               >Programs</a>
+                    <a href="about.html"
+               class=""
+               >About</a>
+                    <a href="impact.html"
+               class=""
+               >Impact</a>
+            </nav>
+
+    <div class="account">
+        
+            <span class="signed-in">
+                Site Admin                <b>admin</b>
+            </span>
+
+            
+            <a href="index.html">Logout</a>
+
+            </div>
+
+</div>
+</header>
+
+<div class="subbar">
+<div class="bar-inner">
+
+    <span class="section">Administration</span>
+
+    <nav aria-label="Administration">
+                    <a href="admin-dashboard.html"
+               class=""
+               >Dashboard</a>
+                    <a href="admin-beneficiaries.html"
+               class=""
+               >Beneficiaries</a>
+                    <a href="admin-requests.html"
+               class=""
+               >Applications</a>
+                    <a href="admin-programs.html"
+               class=""
+               >Manage programs</a>
+                    <a href="admin-donations.html"
+               class="on"
+               aria-current="page">Donations</a>
+                    <a href="admin-users.html"
+               class=""
+               >Users</a>
+                    <a href="admin-messages.html"
+               class=""
+               >Messages</a>
+            </nav>
+
+</div>
+</div>
+
+</div><!-- .bars -->
+
+<main id="content" class="page">
+
+<div class="page-head">
+    <div>
+        <h1>Donations</h1>
+        <p class="subtitle">Everything that has been given to the charity.</p>
+    </div>
+</div>
+
+
+    <table>
+        <tr>
+            <th>Number</th><th>Donor</th><th>Program</th><th>Amount</th><th>Date</th>
+        </tr>
+                    <tr>
+                <td>#7</td>
+                <td>
+                    Omar Haddad<br>
+                    <span class="meta">giver@example.com</span>
+                </td>
+                <td>Winter Blankets</td>
+                <td>400.00 JOD</td>
+                <td>2026-08-25 08:50:00</td>
+            </tr>
+                    <tr>
+                <td>#6</td>
+                <td>
+                    Nadia Rashed<br>
+                    <span class="meta">donor@example.com</span>
+                </td>
+                <td>Medical Aid</td>
+                <td>200.00 JOD</td>
+                <td>2026-08-18 16:35:00</td>
+            </tr>
+                    <tr>
+                <td>#5</td>
+                <td>
+                    Omar Haddad<br>
+                    <span class="meta">giver@example.com</span>
+                </td>
+                <td>Emergency Food Parcels</td>
+                <td>300.00 JOD</td>
+                <td>2026-08-09 11:00:00</td>
+            </tr>
+                    <tr>
+                <td>#4</td>
+                <td>
+                    Omar Haddad<br>
+                    <span class="meta">giver@example.com</span>
+                </td>
+                <td>School Supplies</td>
+                <td>500.00 JOD</td>
+                <td>2026-07-28 14:22:00</td>
+            </tr>
+                    <tr>
+                <td>#3</td>
+                <td>
+                    Nadia Rashed<br>
+                    <span class="meta">donor@example.com</span>
+                </td>
+                <td>Winter Blankets</td>
+                <td>150.00 JOD</td>
+                <td>2026-07-21 09:05:00</td>
+            </tr>
+                    <tr>
+                <td>#2</td>
+                <td>
+                    Nadia Rashed<br>
+                    <span class="meta">donor@example.com</span>
+                </td>
+                <td>Emergency Food Parcels</td>
+                <td>100.00 JOD</td>
+                <td>2026-07-03 18:40:00</td>
+            </tr>
+                    <tr>
+                <td>#1</td>
+                <td>
+                    Nadia Rashed<br>
+                    <span class="meta">donor@example.com</span>
+                </td>
+                <td>Winter Blankets</td>
+                <td>250.00 JOD</td>
+                <td>2026-06-12 10:15:00</td>
+            </tr>
+            </table>
+
+
+</main>
+
+<footer class="footer">
+<div class="inner">
+
+    <div>
+        <span class="name">HopeBridge</span>
+        <p>Connecting compassion with community needs.</p>
+    </div>
+
+    <div>
+        <h2>Quick Links</h2>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Take Part</h2>
+        <ul>
+            <li><a href="register.html">Become a donor</a></li>
+            <li><a href="register.html">Apply for help</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h2>Connect</h2>
+        <ul>
+            <li><a href="admin-messages.html">Message us</a></li>
+        </ul>
+    </div>
+
+    <div class="rule">
+        <p>&copy; 2026 HopeBridge. Built for impact.</p>
+    </div>
+
+</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
